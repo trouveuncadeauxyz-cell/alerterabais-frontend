@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>TrouveUnCadeau.xyz | L'IA qui trouve le cadeau parfait üéÅ</title>
-    <meta name="description" content="Trouvez le cadeau parfait en 30 secondes gr√¢ce √† l'IA. 100% gratuit, 1000+ produits analys√©s. Le futur du shopping intelligent.">
-    <meta name="keywords" content="cadeau, IA, intelligence artificielle, id√©e cadeau, No√´l, anniversaire, Qu√©bec, Canada, France">
-    <meta name="author" content="TrouveUnCadeau.xyz">
+    <title>AlerteRabais.com | L'IA qui trouve le cadeau parfait ??</title>
+    <meta name="description" content="Trouvez le cadeau parfait en 30 secondes gr‚ce ‡ l'IA. 100% gratuit, 1000+ produits analysÈs. Le futur du shopping intelligent.">
+    <meta name="keywords" content="cadeau, IA, intelligence artificielle, idÈe cadeau, NoÎl, anniversaire, QuÈbec, Canada, France">
+    <meta name="author" content="AlerteRabais.com">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://trouveuncadeau.xyz/">
+    <link rel="canonical" href="https://AlerteRabais.com/">
     
     <!-- FAVICON -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>üéÅ</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>üéÅ</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>??</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>??</text></svg>">
     
     <!-- OPEN GRAPH (Facebook, LinkedIn) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://trouveuncadeau.xyz/">
-    <meta property="og:title" content="TrouveUnCadeau.xyz | L'IA qui trouve le cadeau parfait üéÅ">
-    <meta property="og:description" content="Trouvez le cadeau parfait en 30 secondes gr√¢ce √† l'IA. 100% gratuit!">
-    <meta property="og:image" content="https://trouveuncadeau.xyz/og-image.png">
+    <meta property="og:url" content="https://AlerteRabais.com/">
+    <meta property="og:title" content="AlerteRabais.com | L'IA qui trouve le cadeau parfait ??">
+    <meta property="og:description" content="Trouvez le cadeau parfait en 30 secondes gr‚ce ‡ l'IA. 100% gratuit!">
+    <meta property="og:image" content="https://AlerteRabais.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_CA">
-    <meta property="og:site_name" content="TrouveUnCadeau.xyz">
+    <meta property="og:site_name" content="AlerteRabais.com">
     
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://trouveuncadeau.xyz/">
-    <meta name="twitter:title" content="TrouveUnCadeau.xyz | L'IA qui trouve le cadeau parfait üéÅ">
-    <meta name="twitter:description" content="Trouvez le cadeau parfait en 30 secondes gr√¢ce √† l'IA. 100% gratuit!">
-    <meta name="twitter:image" content="https://trouveuncadeau.xyz/og-image.png">
+    <meta name="twitter:url" content="https://AlerteRabais.com/">
+    <meta name="twitter:title" content="AlerteRabais.com | L'IA qui trouve le cadeau parfait ??">
+    <meta name="twitter:description" content="Trouvez le cadeau parfait en 30 secondes gr‚ce ‡ l'IA. 100% gratuit!">
+    <meta name="twitter:image" content="https://AlerteRabais.com/og-image.png">
     
     <!-- SCHEMA.ORG JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "TrouveUnCadeau.xyz",
-        "description": "Trouvez le cadeau parfait gr√¢ce √† l'intelligence artificielle",
-        "url": "https://trouveuncadeau.xyz",
+        "name": "AlerteRabais.com",
+        "description": "Trouvez le cadeau parfait gr‚ce ‡ l'intelligence artificielle",
+        "url": "https://AlerteRabais.com",
         "applicationCategory": "ShoppingApplication",
         "operatingSystem": "Web",
         "offers": {
@@ -346,6 +346,82 @@
         .group-chip .dropdown-arrow {
             font-size: 0.6rem;
             color: var(--text-ghost);
+            transition: transform 0.2s;
+            cursor: pointer;
+            padding: 0.2rem;
+            margin-left: 0.2rem;
+        }
+
+        .group-chip.menu-open .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .group-chip-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .group-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 180px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            z-index: 250;
+            display: none;
+            overflow: hidden;
+        }
+
+        .group-dropdown.show {
+            display: block;
+            animation: slideDown 0.2s ease;
+        }
+
+        .group-dropdown-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 0.85rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .group-dropdown-option:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .group-dropdown-option.selected {
+            background: rgba(0, 217, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        .group-dropdown-option .opt-icon {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .group-dropdown-option .opt-check {
+            margin-left: auto;
+            opacity: 0;
+            font-size: 0.85rem;
+        }
+
+        .group-dropdown-option.selected .opt-check {
+            opacity: 1;
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 600px) {
+            .group-dropdown {
+                min-width: 160px;
+            }
         }
 
         .btn-add-group {
@@ -672,7 +748,7 @@
 
         .filter-chip .chip-icon { font-size: 0.9rem; }
 
-        /* Couleurs sp√©ciales quand actif */
+        /* Couleurs spÈciales quand actif */
         .filter-chip.local.active { background: var(--accent-green); border-color: var(--accent-green); }
         .filter-chip.eco.active { background: #059669; border-color: #059669; }
         .filter-chip.luxe.active { background: linear-gradient(135deg, #D4AF37, #B8860B); border-color: #D4AF37; }
@@ -1092,7 +1168,87 @@
             animation: confetti-fall 3s ease-out forwards;
         }
 
-        /* ===== KEYBOARD SHORTCUT HINT ===== */
+/* ===== RESULTS SECTION ===== */
+        .results-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+        }
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .results-title {
+            font-size: 1.3rem;
+            color: var(--text-white);
+            margin: 0;
+        }
+        .results-count {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .product-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+            transform: translateY(-4px);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        .product-title {
+            font-size: 1rem;
+            color: var(--text-white);
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
+        }
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+        .product-source {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .product-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .product-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--accent-cyan);
+        }        
+
+/* ===== KEYBOARD SHORTCUT HINT ===== */
         .keyboard-hint {
             position: fixed;
             bottom: 20px;
@@ -1161,35 +1317,32 @@
 <body>
     <!-- HEADER -->
     <header class="header" role="banner">
-        <a href="index.html" class="logo" aria-label="TrouveUnCadeau - Accueil">
-            <div class="logo-icon" aria-hidden="true">üéÅ</div>
-            <div class="logo-text">TrouveUnCadeau<span>AI</span></div>
+        <a href="index.html" class="logo" aria-label="AlerteRabais - Accueil">
+            <div class="logo-icon" aria-hidden="true">??</div>
+            <div class="logo-text">AlerteRabais<span>AI</span></div>
         </a>
 
         <nav class="nav-links" role="navigation" aria-label="Navigation principale">
             <a href="index.html" class="nav-link active" aria-current="page">
-                <span aria-hidden="true">üéÅ</span> Cadeau
-            </a>
-            <a href="qg.html" class="nav-link">
-                <span aria-hidden="true">üè†</span> Mon QG
+                <span aria-hidden="true">??</span> Cadeau
             </a>
             <a href="#noel" class="nav-link noel">
-                <span aria-hidden="true">üéÑ</span> No√´l
+                <span aria-hidden="true">??</span> NoÎl
             </a>
             <a href="#perso" class="nav-link">
-                <span aria-hidden="true">üìã</span> Perso
+                <span aria-hidden="true">??</span> Perso
             </a>
             <a href="#entreprise" class="nav-link">
-                <span aria-hidden="true">üè¢</span> Entreprise
+                <span aria-hidden="true">??</span> Entreprise
             </a>
             <a href="#alertes" class="nav-link">
-                <span aria-hidden="true">üîî</span> Alertes prix
+                <span aria-hidden="true">??</span> Alertes prix
             </a>
         </nav>
 
         <div class="header-right">
-            <button class="header-icon" aria-label="Ma tribu" title="Ma tribu">üë•</button>
-            <button class="header-icon" aria-label="Mon profil" title="Mon profil">üë§</button>
+            <a href="tribu.html" class="header-icon" aria-label="Ma tribu" title="Ma tribu">??</a>
+            <a href="profil.html" class="header-icon" aria-label="Mon profil" title="Mon profil">??</a>
         </div>
     </header>
     
@@ -1205,26 +1358,145 @@
 
         <!-- Groups Bar -->
         <div class="groups-bar" role="tablist" aria-label="Destinataires">
-            <button class="group-chip active" data-group="famille" data-member="Maman" role="tab" aria-selected="true">
-                <span aria-hidden="true">üë®‚Äçüë©‚Äçüëß</span> Famille
-                <span class="member-tag">Maman</span>
-                <span class="dropdown-arrow" aria-hidden="true">‚ñº</span>
-            </button>
-            <button class="group-chip" data-group="amis" data-member="Amis" role="tab" aria-selected="false">
-                <span aria-hidden="true">üë•</span> Amis
-                <span class="member-tag">Amis</span>
-                <span class="dropdown-arrow" aria-hidden="true">‚ñº</span>
-            </button>
-            <button class="group-chip" data-group="pro" data-member="Coll√®gue" role="tab" aria-selected="false">
-                <span aria-hidden="true">üíº</span> Pro
-                <span class="member-tag">Coll√®gue</span>
-                <span class="dropdown-arrow" aria-hidden="true">‚ñº</span>
-            </button>
+            <!-- FAMILLE -->
+            <div class="group-chip-wrapper">
+                <button class="group-chip active" data-group="famille" data-member="Maman" role="tab" aria-selected="true">
+                    <span aria-hidden="true">????????</span> Famille
+                    <span class="member-tag">Maman</span>
+                    <span class="dropdown-arrow" aria-hidden="true">?</span>
+                </button>
+                <div class="group-dropdown" data-for="famille">
+                    <div class="group-dropdown-option selected" data-member="Maman">
+                        <span class="opt-icon">??</span>
+                        <span>Maman</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Papa">
+                        <span class="opt-icon">??</span>
+                        <span>Papa</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Fils">
+                        <span class="opt-icon">??</span>
+                        <span>Fils</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Fille">
+                        <span class="opt-icon">??</span>
+                        <span>Fille</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="FrËre">
+                        <span class="opt-icon">?????</span>
+                        <span>FrËre</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Súur">
+                        <span class="opt-icon">?????</span>
+                        <span>Súur</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Grand-parent">
+                        <span class="opt-icon">??</span>
+                        <span>Grand-parent</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Conjoint(e)">
+                        <span class="opt-icon">??</span>
+                        <span>Conjoint(e)</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Enfant">
+                        <span class="opt-icon">??</span>
+                        <span>BÈbÈ / Enfant</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AMIS -->
+            <div class="group-chip-wrapper">
+                <button class="group-chip" data-group="amis" data-member="Ami(e)" role="tab" aria-selected="false">
+                    <span aria-hidden="true">??</span> Amis
+                    <span class="member-tag">Ami(e)</span>
+                    <span class="dropdown-arrow" aria-hidden="true">?</span>
+                </button>
+                <div class="group-dropdown" data-for="amis">
+                    <div class="group-dropdown-option selected" data-member="Ami(e)">
+                        <span class="opt-icon">??</span>
+                        <span>Ami(e)</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Meilleur(e) ami(e)">
+                        <span class="opt-icon">??</span>
+                        <span>Meilleur(e) ami(e)</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Groupe d'amis">
+                        <span class="opt-icon">??</span>
+                        <span>Groupe d'amis</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Voisin(e)">
+                        <span class="opt-icon">??</span>
+                        <span>Voisin(e)</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Connaissance">
+                        <span class="opt-icon">??</span>
+                        <span>Connaissance</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRO -->
+            <div class="group-chip-wrapper">
+                <button class="group-chip" data-group="pro" data-member="CollËgue" role="tab" aria-selected="false">
+                    <span aria-hidden="true">??</span> Pro
+                    <span class="member-tag">CollËgue</span>
+                    <span class="dropdown-arrow" aria-hidden="true">?</span>
+                </button>
+                <div class="group-dropdown" data-for="pro">
+                    <div class="group-dropdown-option selected" data-member="CollËgue">
+                        <span class="opt-icon">??</span>
+                        <span>CollËgue</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Patron/Manager">
+                        <span class="opt-icon">?????</span>
+                        <span>Patron / Manager</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Client">
+                        <span class="opt-icon">??</span>
+                        <span>Client</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Partenaire">
+                        <span class="opt-icon">??</span>
+                        <span>Partenaire d'affaires</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="EmployÈ">
+                        <span class="opt-icon">??</span>
+                        <span>EmployÈ</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                    <div class="group-dropdown-option" data-member="Professeur">
+                        <span class="opt-icon">?????</span>
+                        <span>Professeur / Mentor</span>
+                        <span class="opt-check">?</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POUR MOI (pas de sous-menu) -->
             <button class="group-chip" data-group="moi" data-member="Moi" role="tab" aria-selected="false">
-                <span aria-hidden="true">üôã</span> Pour moi
+                <span aria-hidden="true">??</span> Pour moi
                 <span class="member-tag">Moi</span>
-                <span class="dropdown-arrow" aria-hidden="true">‚ñº</span>
             </button>
+
             <button class="btn-add-group" aria-label="Ajouter un groupe">
                 <span aria-hidden="true">+</span> Groupe
             </button>
@@ -1233,10 +1505,10 @@
         <!-- Main Card -->
         <div class="main-card">
             <div class="card-header">
-                <div class="status-badge" role="status">IA pr√™te</div>
+                <div class="status-badge" role="status">IA prÍte</div>
                 <div class="card-actions">
                     <button class="action-link" aria-label="Sauvegarder cette recherche">
-                        <span aria-hidden="true">‚≠ê</span> Sauvegarder
+                        <span aria-hidden="true">?</span> Sauvegarder
                     </button>
                     <div class="target-badge" aria-live="polite">
                         <span class="label">vers</span>
@@ -1247,20 +1519,20 @@
 
             <!-- PROMPT AREA -->
             <div class="prompt-area">
-                <label for="promptInput" class="sr-only">D√©crivez ce que vous recherchez</label>
+                <label for="promptInput" class="sr-only">DÈcrivez ce que vous recherchez</label>
                 <textarea 
                     class="prompt-input" 
                     id="promptInput" 
-                    placeholder="Je suis ton IA sp√©cialis√© dans la recherche de produits adapt√©s √† vos besoins. Mon service est 100% gratuit ‚Äî je parcours le web pour d√©nicher les meilleures options parmi des milliers de produits disponibles en ligne."
+                    placeholder="Je suis ton IA spÈcialisÈ dans la recherche de produits adaptÈs ‡ vos besoins. Mon service est 100% gratuit ó je parcours le web pour dÈnicher les meilleures options parmi des milliers de produits disponibles en ligne."
                     aria-describedby="promptHint"
                 ></textarea>
-                <span id="promptHint" class="sr-only">S√©lectionnez des filtres ci-dessous ou d√©crivez votre recherche</span>
+                <span id="promptHint" class="sr-only">SÈlectionnez des filtres ci-dessous ou dÈcrivez votre recherche</span>
                 <div class="prompt-footer">
                     <button class="btn-share" id="btnShare" aria-label="Partager cette recherche" title="Partager">
-                        üì§
+                        ??
                     </button>
                     <button class="btn-search" id="btnSearch" aria-label="Lancer la recherche">
-                        <span class="btn-text"><span aria-hidden="true">üîç</span> Trouver</span>
+                        <span class="btn-text"><span aria-hidden="true">??</span> Trouver</span>
                         <span class="spinner" aria-hidden="true"></span>
                     </button>
                 </div>
@@ -1269,128 +1541,128 @@
 
         <!-- Filters -->
         <div class="filters-section" role="region" aria-label="Filtres de recherche">
-            <!-- CAT√âGORIES -->
+            <!-- CAT…GORIES -->
             <div class="filter-row">
-                <div class="filter-label" id="cat-label">CAT√âGORIES</div>
-                <button class="filter-scroll-btn scroll-left" data-target="categories" aria-label="D√©filer les cat√©gories vers la gauche">&lt;</button>
+                <div class="filter-label" id="cat-label">CAT…GORIES</div>
+                <button class="filter-scroll-btn scroll-left" data-target="categories" aria-label="DÈfiler les catÈgories vers la gauche">&lt;</button>
                 <div class="filter-chips-container" id="categories" role="group" aria-labelledby="cat-label">
                     <div class="filter-chips">
                         <button class="filter-chip" data-filter="populaire" data-prompt="populaires" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üî•</span> Populaires
+                            <span class="chip-icon" aria-hidden="true">??</span> Populaires
                         </button>
                         <button class="filter-chip liquidation" data-filter="liquidation" data-prompt="en liquidation" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üí∞</span> Liquidation
+                            <span class="chip-icon" aria-hidden="true">??</span> Liquidation
                         </button>
-                        <button class="filter-chip" data-filter="qualite-prix" data-prompt="meilleur rapport qualit√©/prix" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">‚≠ê</span> Qualit√©/Prix
+                        <button class="filter-chip" data-filter="qualite-prix" data-prompt="meilleur rapport qualitÈ/prix" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">?</span> QualitÈ/Prix
                         </button>
                         <button class="filter-chip flash" data-filter="flash" data-prompt="en vente flash" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">‚ö°</span> Flash
+                            <span class="chip-icon" aria-hidden="true">?</span> Flash
                         </button>
                         <button class="filter-chip" data-filter="best-sellers" data-prompt="best-sellers" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üèÜ</span> Best-Sellers
+                            <span class="chip-icon" aria-hidden="true">??</span> Best-Sellers
                         </button>
                         <button class="filter-chip" data-filter="artisanal" data-prompt="artisanaux" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üé®</span> Artisanal
+                            <span class="chip-icon" aria-hidden="true">??</span> Artisanal
                         </button>
-                        <button class="filter-chip eco" data-filter="eco" data-prompt="√©co-responsables" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üåø</span> √âco
+                        <button class="filter-chip eco" data-filter="eco" data-prompt="Èco-responsables" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> …co
                         </button>
                         <button class="filter-chip luxe" data-filter="luxe" data-prompt="haut de gamme" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üíé</span> Luxe
+                            <span class="chip-icon" aria-hidden="true">??</span> Luxe
                         </button>
                         <button class="filter-chip local" data-filter="local" data-prompt="en achat local" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üè™</span> Achat Local
+                            <span class="chip-icon" aria-hidden="true">??</span> Achat Local
                         </button>
                     </div>
                 </div>
-                <button class="filter-scroll-btn scroll-right" data-target="categories" aria-label="D√©filer les cat√©gories vers la droite">&gt;</button>
+                <button class="filter-scroll-btn scroll-right" data-target="categories" aria-label="DÈfiler les catÈgories vers la droite">&gt;</button>
             </div>
 
-            <!-- INT√âR√äTS -->
+            <!-- INT…R TS -->
             <div class="filter-row">
-                <div class="filter-label" id="int-label">INT√âR√äTS</div>
-                <button class="filter-scroll-btn scroll-left" data-target="interets" aria-label="D√©filer les int√©r√™ts vers la gauche">&lt;</button>
+                <div class="filter-label" id="int-label">INT…R TS</div>
+                <button class="filter-scroll-btn scroll-left" data-target="interets" aria-label="DÈfiler les intÈrÍts vers la gauche">&lt;</button>
                 <div class="filter-chips-container" id="interets" role="group" aria-labelledby="int-label">
                     <div class="filter-chips">
                         <button class="filter-chip" data-filter="lecture" data-prompt="livres/lecture" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üìö</span> Lecture
+                            <span class="chip-icon" aria-hidden="true">??</span> Lecture
                         </button>
                         <button class="filter-chip" data-filter="cuisine" data-prompt="cuisine" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üç≥</span> Cuisine
+                            <span class="chip-icon" aria-hidden="true">??</span> Cuisine
                         </button>
                         <button class="filter-chip" data-filter="jardinage" data-prompt="jardinage" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üå±</span> Jardinage
+                            <span class="chip-icon" aria-hidden="true">??</span> Jardinage
                         </button>
-                        <button class="filter-chip" data-filter="creatif" data-prompt="loisirs cr√©atifs" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üé®</span> Cr√©atif
+                        <button class="filter-chip" data-filter="creatif" data-prompt="loisirs crÈatifs" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> CrÈatif
                         </button>
                         <button class="filter-chip" data-filter="sport" data-prompt="sport" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">‚öΩ</span> Sport
+                            <span class="chip-icon" aria-hidden="true">?</span> Sport
                         </button>
-                        <button class="filter-chip" data-filter="velo" data-prompt="v√©lo" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üö¥</span> V√©lo
+                        <button class="filter-chip" data-filter="velo" data-prompt="vÈlo" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> VÈlo
                         </button>
                         <button class="filter-chip" data-filter="ski" data-prompt="ski" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">‚õ∑Ô∏è</span> Ski
+                            <span class="chip-icon" aria-hidden="true">??</span> Ski
                         </button>
-                        <button class="filter-chip" data-filter="gaming" data-prompt="gaming/jeux vid√©o" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üéÆ</span> Gaming
+                        <button class="filter-chip" data-filter="gaming" data-prompt="gaming/jeux vidÈo" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> Gaming
                         </button>
                         <button class="filter-chip" data-filter="voyage" data-prompt="voyage" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">‚úàÔ∏è</span> Voyage
+                            <span class="chip-icon" aria-hidden="true">??</span> Voyage
                         </button>
                         <button class="filter-chip" data-filter="musique" data-prompt="musique" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üéµ</span> Musique
+                            <span class="chip-icon" aria-hidden="true">??</span> Musique
                         </button>
                         <button class="filter-chip" data-filter="tech" data-prompt="tech/gadgets" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üíª</span> Tech
+                            <span class="chip-icon" aria-hidden="true">??</span> Tech
                         </button>
                         <button class="filter-chip" data-filter="photo" data-prompt="photo" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üì∑</span> Photo
+                            <span class="chip-icon" aria-hidden="true">??</span> Photo
                         </button>
                         <button class="filter-chip" data-filter="vin" data-prompt="vin" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üç∑</span> Vin
+                            <span class="chip-icon" aria-hidden="true">??</span> Vin
                         </button>
-                        <button class="filter-chip" data-filter="cafe" data-prompt="caf√©/th√©" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">‚òï</span> Caf√©
+                        <button class="filter-chip" data-filter="cafe" data-prompt="cafÈ/thÈ" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">?</span> CafÈ
                         </button>
-                        <button class="filter-chip" data-filter="spa" data-prompt="spa/bien-√™tre" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üíÜ</span> Spa
+                        <button class="filter-chip" data-filter="spa" data-prompt="spa/bien-Ítre" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> Spa
                         </button>
-                        <button class="filter-chip" data-filter="beaute" data-prompt="beaut√©" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üíÑ</span> Beaut√©
+                        <button class="filter-chip" data-filter="beaute" data-prompt="beautÈ" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> BeautÈ
                         </button>
                         <button class="filter-chip" data-filter="mode" data-prompt="mode" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üëî</span> Mode
+                            <span class="chip-icon" aria-hidden="true">??</span> Mode
                         </button>
                         <button class="filter-chip" data-filter="animaux" data-prompt="animaux de compagnie" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üêï</span> Animaux
+                            <span class="chip-icon" aria-hidden="true">??</span> Animaux
                         </button>
-                        <button class="filter-chip" data-filter="bebe" data-prompt="b√©b√©/enfant" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üë∂</span> B√©b√©
+                        <button class="filter-chip" data-filter="bebe" data-prompt="bÈbÈ/enfant" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> BÈbÈ
                         </button>
-                        <button class="filter-chip" data-filter="deco" data-prompt="d√©coration maison" aria-pressed="false">
-                            <span class="chip-icon" aria-hidden="true">üè†</span> D√©co
+                        <button class="filter-chip" data-filter="deco" data-prompt="dÈcoration maison" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">??</span> DÈco
                         </button>
                     </div>
                 </div>
-                <button class="filter-scroll-btn scroll-right" data-target="interets" aria-label="D√©filer les int√©r√™ts vers la droite">&gt;</button>
+                <button class="filter-scroll-btn scroll-right" data-target="interets" aria-label="DÈfiler les intÈrÍts vers la droite">&gt;</button>
             </div>
         </div>
 
         <!-- Bottom Bar avec Provenance et Langue -->
         <div class="bottom-bar">
-            <button class="bottom-icon" aria-label="Mode priv√©" title="Mode priv√©">üîí</button>
-            <button class="bottom-icon" aria-label="Budget" title="D√©finir un budget">$</button>
+            <button class="bottom-icon" aria-label="Mode privÈ" title="Mode privÈ">??</button>
+            <button class="bottom-icon" aria-label="Budget" title="DÈfinir un budget">$</button>
             
             <!-- PROVENANCE compact -->
             <div class="provenance-wrapper compact">
                 <button class="provenance-trigger compact" id="provTrigger" aria-haspopup="true" aria-expanded="false">
-                    <span class="prov-icon" aria-hidden="true">üåç</span>
+                    <span class="prov-icon" aria-hidden="true">??</span>
                     <span class="prov-text">Origine</span>
                     <span class="provenance-selected" id="provSelectedBadge"></span>
-                    <span class="prov-arrow" aria-hidden="true">‚ñº</span>
+                    <span class="prov-arrow" aria-hidden="true">?</span>
                 </button>
                 
                 <div class="provenance-dropdown" id="provDropdown" role="menu">
@@ -1400,76 +1672,76 @@
                     </div>
                     
                     <div class="prov-section">
-                        <div class="prov-section-title">R√©gion</div>
+                        <div class="prov-section-title">RÈgion</div>
                         
-                        <div class="prov-option" data-prov="quebec" data-prompt="produits du Qu√©bec" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üçÅ</span>
-                            <span class="prov-opt-text">Qu√©bec</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                        <div class="prov-option" data-prov="quebec" data-prompt="produits du QuÈbec" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">??</span>
+                            <span class="prov-opt-text">QuÈbec</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
                         <div class="prov-option has-submenu" data-prov="canada" data-prompt="produits canadiens" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üá®üá¶</span>
-                            <span class="prov-opt-text">Canada (hors Qu√©bec)</span>
-                            <span class="prov-opt-arrow" aria-hidden="true">‚ñ∂</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                            <span class="prov-opt-icon" aria-hidden="true">????</span>
+                            <span class="prov-opt-text">Canada (hors QuÈbec)</span>
+                            <span class="prov-opt-arrow" aria-hidden="true">?</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
                         <div class="prov-submenu" id="canadaSubmenu">
                             <div class="prov-option" data-prov="ontario" data-prompt="produits de l'Ontario" data-parent="canada" role="menuitem">
-                                <span class="prov-opt-icon" aria-hidden="true">üèôÔ∏è</span>
+                                <span class="prov-opt-icon" aria-hidden="true">???</span>
                                 <span class="prov-opt-text">Ontario</span>
-                                <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                                <span class="prov-opt-check" aria-hidden="true">?</span>
                             </div>
                             <div class="prov-option" data-prov="bc" data-prompt="produits de Colombie-Britannique" data-parent="canada" role="menuitem">
-                                <span class="prov-opt-icon" aria-hidden="true">üå≤</span>
+                                <span class="prov-opt-icon" aria-hidden="true">??</span>
                                 <span class="prov-opt-text">Colombie-Britannique</span>
-                                <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                                <span class="prov-opt-check" aria-hidden="true">?</span>
                             </div>
                             <div class="prov-option" data-prov="alberta" data-prompt="produits de l'Alberta" data-parent="canada" role="menuitem">
-                                <span class="prov-opt-icon" aria-hidden="true">‚õ∞Ô∏è</span>
+                                <span class="prov-opt-icon" aria-hidden="true">??</span>
                                 <span class="prov-opt-text">Alberta</span>
-                                <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                                <span class="prov-opt-check" aria-hidden="true">?</span>
                             </div>
                             <div class="prov-option" data-prov="maritimes" data-prompt="produits des Maritimes" data-parent="canada" role="menuitem">
-                                <span class="prov-opt-icon" aria-hidden="true">ü¶û</span>
+                                <span class="prov-opt-icon" aria-hidden="true">??</span>
                                 <span class="prov-opt-text">Maritimes</span>
-                                <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                                <span class="prov-opt-check" aria-hidden="true">?</span>
                             </div>
                             <div class="prov-option" data-prov="prairies" data-prompt="produits des Prairies" data-parent="canada" role="menuitem">
-                                <span class="prov-opt-icon" aria-hidden="true">üåæ</span>
+                                <span class="prov-opt-icon" aria-hidden="true">??</span>
                                 <span class="prov-opt-text">Prairies (MB, SK)</span>
-                                <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                                <span class="prov-opt-check" aria-hidden="true">?</span>
                             </div>
                         </div>
                         
-                        <div class="prov-option" data-prov="usa" data-prompt="produits des √âtats-Unis" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üá∫üá∏</span>
-                            <span class="prov-opt-text">USA (√âtats-Unis)</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                        <div class="prov-option" data-prov="usa" data-prompt="produits des …tats-Unis" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">????</span>
+                            <span class="prov-opt-text">USA (…tats-Unis)</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
                         <div class="prov-option" data-prov="france" data-prompt="produits de France" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üá´üá∑</span>
+                            <span class="prov-opt-icon" aria-hidden="true">????</span>
                             <span class="prov-opt-text">France</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
-                        <div class="prov-option" data-prov="europe" data-prompt="produits europ√©ens" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üá™üá∫</span>
+                        <div class="prov-option" data-prov="europe" data-prompt="produits europÈens" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">????</span>
                             <span class="prov-opt-text">Europe</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
                         <div class="prov-option" data-prov="international" data-prompt="tous produits internationaux" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üåç</span>
+                            <span class="prov-opt-icon" aria-hidden="true">??</span>
                             <span class="prov-opt-text">International (tous)</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                     </div>
                     
                     <div class="prov-info">
-                        Par d√©faut: tous produits sans restriction g√©ographique.
+                        Par dÈfaut: tous produits sans restriction gÈographique.
                     </div>
                 </div>
             </div>
@@ -1477,78 +1749,87 @@
             <!-- LANGUE compact -->
             <div class="provenance-wrapper compact">
                 <button class="provenance-trigger compact" id="langTrigger" aria-haspopup="true" aria-expanded="false">
-                    <span class="prov-icon" aria-hidden="true">üá´üá∑</span>
+                    <span class="prov-icon" aria-hidden="true">????</span>
                     <span class="prov-text">FR</span>
                     <span class="provenance-selected" id="langSelectedBadge"></span>
-                    <span class="prov-arrow" aria-hidden="true">‚ñº</span>
+                    <span class="prov-arrow" aria-hidden="true">?</span>
                 </button>
                 
                 <div class="provenance-dropdown" id="langDropdown" role="menu">
                     <div class="prov-header">
                         <span class="prov-header-title">Langue des produits</span>
-                        <span class="prov-clear" id="langClear" role="button" tabindex="0">R√©initialiser</span>
+                        <span class="prov-clear" id="langClear" role="button" tabindex="0">RÈinitialiser</span>
                     </div>
                     
                     <div class="prov-section">
-                        <div class="prov-option selected" data-lang="fr" data-prompt="en fran√ßais" data-icon="üá´üá∑" data-text="FR" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üá´üá∑</span>
-                            <span class="prov-opt-text">Fran√ßais</span>
-                            <span class="prov-opt-badge">d√©faut</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                        <div class="prov-option selected" data-lang="fr" data-prompt="en franÁais" data-icon="????" data-text="FR" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">????</span>
+                            <span class="prov-opt-text">FranÁais</span>
+                            <span class="prov-opt-badge">dÈfaut</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
-                        <div class="prov-option" data-lang="en" data-prompt="in English" data-icon="üá¨üáß" data-text="EN" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üá¨üáß</span>
+                        <div class="prov-option" data-lang="en" data-prompt="in English" data-icon="????" data-text="EN" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">????</span>
                             <span class="prov-opt-text">Anglais / English</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
-                        <div class="prov-option" data-lang="es" data-prompt="en espa√±ol" data-icon="üá™üá∏" data-text="ES" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üá™üá∏</span>
-                            <span class="prov-opt-text">Espagnol / Espa√±ol</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                        <div class="prov-option" data-lang="es" data-prompt="en espaÒol" data-icon="????" data-text="ES" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">????</span>
+                            <span class="prov-opt-text">Espagnol / EspaÒol</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                         
-                        <div class="prov-option" data-lang="other" data-prompt="dans toutes les langues" data-icon="üåê" data-text="ALL" role="menuitem">
-                            <span class="prov-opt-icon" aria-hidden="true">üåê</span>
+                        <div class="prov-option" data-lang="other" data-prompt="dans toutes les langues" data-icon="??" data-text="ALL" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">??</span>
                             <span class="prov-opt-text">Autres langues / Toutes</span>
-                            <span class="prov-opt-check" aria-hidden="true">‚úì</span>
+                            <span class="prov-opt-check" aria-hidden="true">?</span>
                         </div>
                     </div>
                     
                     <div class="prov-info">
-                        Fran√ßais par d√©faut. R√©sultats dans la langue choisie.
+                        FranÁais par dÈfaut. RÈsultats dans la langue choisie.
                     </div>
                 </div>
             </div>
+        </div><!-- ZONE R…SULTATS -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-header">
+            <h2 class="results-title">?? RÈsultats pour "<span id="resultsQuery"></span>"</h2>
+            <span class="results-count" id="resultsCount"></span>
         </div>
+        <div class="results-grid" id="resultsGrid">
+            <!-- Cards gÈnÈrÈes par JS -->
+        </div>
+    </section>
     </main>
 
     <!-- Mobile Nav -->
     <nav class="mobile-nav" role="navigation" aria-label="Navigation mobile">
         <div class="mobile-nav-links">
             <a href="index.html" class="mobile-nav-link active" aria-current="page">
-                <span aria-hidden="true">üîç</span> Recherche
+                <span aria-hidden="true">??</span> Recherche
             </a>
             <a href="qg.html" class="mobile-nav-link">
-                <span aria-hidden="true">üè†</span> Mon QG
+                <span aria-hidden="true">??</span> Mon QG
             </a>
             <a href="tribu.html" class="mobile-nav-link">
-                <span aria-hidden="true">üë•</span> Tribu
+                <span aria-hidden="true">??</span> Tribu
             </a>
             <a href="fil-tribu.html" class="mobile-nav-link">
-                <span aria-hidden="true">üì∞</span> Fil
+                <span aria-hidden="true">??</span> Fil
             </a>
             <a href="liste.html" class="mobile-nav-link">
-                <span aria-hidden="true">üìã</span> Listes
+                <span aria-hidden="true">??</span> Listes
             </a>
         </div>
     </nav>
 
     <!-- Toast -->
     <div class="toast" id="toast" role="alert" aria-live="assertive">
-        <span id="toastIcon" aria-hidden="true">‚úì</span>
-        <span id="toastText">Filtre ajout√©!</span>
+        <span id="toastIcon" aria-hidden="true">?</span>
+        <span id="toastText">Filtre ajoutÈ!</span>
     </div>
     
     <!-- Confetti Container -->
@@ -1556,26 +1837,26 @@
     
     <!-- Keyboard Hint -->
     <div class="keyboard-hint" aria-hidden="true">
-        <kbd>Enter</kbd> pour rechercher ‚Ä¢ <kbd>Esc</kbd> pour effacer
+        <kbd>Enter</kbd> pour rechercher ï <kbd>Esc</kbd> pour effacer
     </div>
 
     <script>
-        console.log('üöÄ TrouveUnCadeau V23 - Syst√®me Provenance + Langue');
+        console.log('?? AlerteRabais V23 - SystËme Provenance + Langue');
 
-        // ===== √âTAT GLOBAL =====
+        // ===== …TAT GLOBAL =====
         const state = {
             target: 'Maman',
             interests: [],
             categories: [],
-            provenance: null,      // null = pas de filtre g√©ographique (d√©faut)
+            provenance: null,      // null = pas de filtre gÈographique (dÈfaut)
             provenanceLabel: '',   // Texte pour le prompt
-            language: 'fr',        // 'fr' par d√©faut
-            languageLabel: 'en fran√ßais',
+            language: 'fr',        // 'fr' par dÈfaut
+            languageLabel: 'en franÁais',
             userTyped: false,
             isSearching: false
         };
 
-        // ===== √âL√âMENTS DOM =====
+        // ===== …L…MENTS DOM =====
         const promptInput = document.getElementById('promptInput');
         const targetNameEl = document.getElementById('targetName');
         const toast = document.getElementById('toast');
@@ -1600,9 +1881,9 @@
         const langSelectedBadge = document.getElementById('langSelectedBadge');
 
         // ===== PLACEHOLDER =====
-        const ghostPlaceholder = "Je suis ton IA sp√©cialis√© dans la recherche de produits adapt√©s √† vos besoins. Mon service est 100% gratuit ‚Äî je parcours le web pour d√©nicher les meilleures options parmi des milliers de produits disponibles en ligne.";
+        const ghostPlaceholder = "Je suis ton IA spÈcialisÈ dans la recherche de produits adaptÈs ‡ vos besoins. Mon service est 100% gratuit ó je parcours le web pour dÈnicher les meilleures options parmi des milliers de produits disponibles en ligne.";
 
-        // ===== SOCIAL PROOF - Compteur en temps r√©el =====
+        // ===== SOCIAL PROOF - Compteur en temps rÈel =====
         function updateLiveCount() {
             const base = 750;
             const variation = Math.floor(Math.random() * 200);
@@ -1618,7 +1899,7 @@
                 return;
             }
 
-            // Afficher prompt si au moins un filtre est actif (ou langue diff√©rente de fran√ßais)
+            // Afficher prompt si au moins un filtre est actif (ou langue diffÈrente de franÁais)
             if (state.interests.length === 0 && state.categories.length === 0 && !state.provenance && state.language === 'fr') {
                 promptInput.value = '';
                 promptInput.placeholder = ghostPlaceholder;
@@ -1640,12 +1921,12 @@
                 prompt += ', ' + state.categories.join(', ');
             }
             
-            // Ajouter la provenance si s√©lectionn√©e
+            // Ajouter la provenance si sÈlectionnÈe
             if (state.provenance && state.provenanceLabel) {
                 prompt += `, ${state.provenanceLabel}`;
             }
             
-            // Ajouter la langue si diff√©rente du fran√ßais
+            // Ajouter la langue si diffÈrente du franÁais
             if (state.language !== 'fr' && state.languageLabel) {
                 prompt += `, ${state.languageLabel}`;
             }
@@ -1678,14 +1959,14 @@
                             state.interests.push(promptText);
                         }
                     }
-                    showToast(`‚úì ${chip.textContent.trim()} ajout√©`, '‚úì', 'success');
+                    showToast(`? ${chip.textContent.trim()} ajoutÈ`, '?', 'success');
                 } else {
                     if (isCategory) {
                         state.categories = state.categories.filter(c => c !== promptText);
                     } else {
                         state.interests = state.interests.filter(i => i !== promptText);
                     }
-                    showToast(`‚úó ${chip.textContent.trim()} retir√©`, '‚úó');
+                    showToast(`? ${chip.textContent.trim()} retirÈ`, '?');
                 }
                 
                 state.userTyped = false;
@@ -1693,15 +1974,44 @@
             });
         });
 
-        // ===== D√âTECTION FRAPPE MANUELLE =====
+        // ===== D…TECTION FRAPPE MANUELLE =====
         promptInput.addEventListener('input', () => {
             state.userTyped = true;
         });
 
-        // ===== GESTION DES GROUPES =====
-        document.querySelectorAll('.group-chip').forEach(chip => {
-            chip.addEventListener('click', () => {
-                document.querySelectorAll('.group-chip').forEach(c => {
+        // ===== GESTION DES GROUPES AVEC SOUS-MENUS =====
+        const groupChips = document.querySelectorAll('.group-chip');
+        const groupDropdowns = document.querySelectorAll('.group-dropdown');
+
+        // Fermer tous les menus
+        function closeAllGroupMenus() {
+            groupDropdowns.forEach(d => d.classList.remove('show'));
+            groupChips.forEach(c => c.classList.remove('menu-open'));
+        }
+
+        // Gestion des clics sur les group-chips
+        groupChips.forEach(chip => {
+            chip.addEventListener('click', (e) => {
+                const arrow = chip.querySelector('.dropdown-arrow');
+                const wrapper = chip.closest('.group-chip-wrapper');
+                const dropdown = wrapper ? wrapper.querySelector('.group-dropdown') : null;
+                
+                // Si clic sur la flËche et qu'il y a un dropdown
+                if (arrow && e.target.closest('.dropdown-arrow') && dropdown) {
+                    e.stopPropagation();
+                    
+                    const isOpen = dropdown.classList.contains('show');
+                    closeAllGroupMenus();
+                    
+                    if (!isOpen) {
+                        dropdown.classList.add('show');
+                        chip.classList.add('menu-open');
+                    }
+                    return;
+                }
+                
+                // Sinon, sÈlectionner le groupe (comportement normal)
+                groupChips.forEach(c => {
                     c.classList.remove('active');
                     c.setAttribute('aria-selected', 'false');
                 });
@@ -1710,17 +2020,70 @@
                 chip.setAttribute('aria-selected', 'true');
                 
                 const member = chip.dataset.member;
-                const groupName = chip.dataset.group;
                 state.target = member;
-                
                 targetNameEl.textContent = member;
                 
                 state.userTyped = false;
                 buildAutoPrompt();
                 
-                console.log(`üéØ Groupe chang√©: ${groupName} ‚Üí ${member}`);
-                showToast(`üéØ Recherche pour: ${member}`, 'üéØ', 'success');
+                // Fermer les menus si ouverts
+                closeAllGroupMenus();
+                
+                console.log(`?? Groupe changÈ: ${chip.dataset.group} ? ${member}`);
+                showToast(`?? Recherche pour: ${member}`, '??', 'success');
             });
+        });
+
+        // Gestion des clics sur les options du dropdown
+        document.querySelectorAll('.group-dropdown-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const dropdown = option.closest('.group-dropdown');
+                const groupName = dropdown.dataset.for;
+                const wrapper = dropdown.closest('.group-chip-wrapper');
+                const chip = wrapper.querySelector('.group-chip');
+                const memberTag = chip.querySelector('.member-tag');
+                const newMember = option.dataset.member;
+                
+                // Mettre ‡ jour la sÈlection visuelle dans le dropdown
+                dropdown.querySelectorAll('.group-dropdown-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                option.classList.add('selected');
+                
+                // Mettre ‡ jour le chip
+                chip.dataset.member = newMember;
+                memberTag.textContent = newMember;
+                
+                // Activer ce groupe
+                groupChips.forEach(c => {
+                    c.classList.remove('active');
+                    c.setAttribute('aria-selected', 'false');
+                });
+                chip.classList.add('active');
+                chip.setAttribute('aria-selected', 'true');
+                
+                // Mettre ‡ jour le state
+                state.target = newMember;
+                targetNameEl.textContent = newMember;
+                
+                state.userTyped = false;
+                buildAutoPrompt();
+                
+                // Fermer le menu
+                closeAllGroupMenus();
+                
+                console.log(`?? Membre sÈlectionnÈ: ${groupName} ? ${newMember}`);
+                showToast(`?? Recherche pour: ${newMember}`, '??', 'success');
+            });
+        });
+
+        // Fermer les menus en cliquant ailleurs
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.group-chip-wrapper') && !e.target.closest('.group-chip')) {
+                closeAllGroupMenus();
+            }
         });
 
         // ===== PROVENANCE DROPDOWN =====
@@ -1753,7 +2116,7 @@
             state.provenanceLabel = '';
             provSelectedBadge.textContent = '';
             provTrigger.classList.remove('has-selection');
-            provTrigger.querySelector('.prov-icon').textContent = 'üåç';
+            provTrigger.querySelector('.prov-icon').textContent = '??';
             provTrigger.querySelector('.prov-text').textContent = 'Origine';
             document.querySelectorAll('#provDropdown .prov-option').forEach(opt => opt.classList.remove('selected', 'expanded'));
             canadaSubmenu.classList.remove('show');
@@ -1774,7 +2137,7 @@
                     canadaSubmenu.classList.toggle('show');
                 }
                 
-                // D√©s√©lectionner toutes les autres options
+                // DÈsÈlectionner toutes les autres options
                 document.querySelectorAll('#provDropdown .prov-option').forEach(opt => {
                     if (opt !== option) opt.classList.remove('selected');
                 });
@@ -1788,11 +2151,11 @@
                     provSelectedBadge.textContent = option.querySelector('.prov-opt-text').textContent;
                     provTrigger.classList.add('has-selection');
                     
-                    // Mettre √† jour l'ic√¥ne du trigger
+                    // Mettre ‡ jour l'icÙne du trigger
                     const icon = option.querySelector('.prov-opt-icon').textContent;
                     provTrigger.querySelector('.prov-icon').textContent = icon;
                     
-                    showToast(`üìç Provenance: ${option.querySelector('.prov-opt-text').textContent}`, 'üìç', 'success');
+                    showToast(`?? Provenance: ${option.querySelector('.prov-opt-text').textContent}`, '??', 'success');
                 } else {
                     clearProvenance();
                 }
@@ -1808,7 +2171,7 @@
             clearProvenance();
             state.userTyped = false;
             buildAutoPrompt();
-            showToast('üìç Provenance effac√©e', 'üóëÔ∏è');
+            showToast('?? Provenance effacÈe', '???');
         });
 
         // ===== LANGUE DROPDOWN =====
@@ -1823,13 +2186,13 @@
             langTrigger.setAttribute('aria-expanded', langDropdown.classList.contains('show'));
         });
 
-        // Fonction pour r√©initialiser la langue (fran√ßais par d√©faut)
+        // Fonction pour rÈinitialiser la langue (franÁais par dÈfaut)
         function resetLanguage() {
             state.language = 'fr';
-            state.languageLabel = 'en fran√ßais';
+            state.languageLabel = 'en franÁais';
             langSelectedBadge.textContent = '';
             langTrigger.classList.remove('has-selection');
-            langTrigger.querySelector('.prov-icon').textContent = 'üá´üá∑';
+            langTrigger.querySelector('.prov-icon').textContent = '????';
             langTrigger.querySelector('.prov-text').textContent = 'FR';
             document.querySelectorAll('#langDropdown .prov-option').forEach(opt => opt.classList.remove('selected'));
             document.querySelector('#langDropdown .prov-option[data-lang="fr"]').classList.add('selected');
@@ -1845,18 +2208,18 @@
                 const icon = option.dataset.icon;
                 const text = option.dataset.text;
                 
-                // D√©s√©lectionner toutes les autres options
+                // DÈsÈlectionner toutes les autres options
                 document.querySelectorAll('#langDropdown .prov-option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
                 
-                // S√©lectionner cette option
+                // SÈlectionner cette option
                 option.classList.add('selected');
                 
                 state.language = lang;
                 state.languageLabel = promptText;
                 
-                // Mettre √† jour le trigger
+                // Mettre ‡ jour le trigger
                 langTrigger.querySelector('.prov-icon').textContent = icon;
                 langTrigger.querySelector('.prov-text').textContent = text;
                 
@@ -1868,7 +2231,7 @@
                     langTrigger.classList.remove('has-selection');
                 }
                 
-                showToast(`üåê Langue: ${option.querySelector('.prov-opt-text').textContent}`, 'üåê', 'success');
+                showToast(`?? Langue: ${option.querySelector('.prov-opt-text').textContent}`, '??', 'success');
                 
                 // Fermer dropdown
                 langDropdown.classList.remove('show');
@@ -1879,13 +2242,13 @@
             });
         });
 
-        // Bouton R√©initialiser langue
+        // Bouton RÈinitialiser langue
         langClear.addEventListener('click', (e) => {
             e.stopPropagation();
             resetLanguage();
             state.userTyped = false;
             buildAutoPrompt();
-            showToast('üåê Langue r√©initialis√©e (Fran√ßais)', 'üá´üá∑');
+            showToast('?? Langue rÈinitialisÈe (FranÁais)', '????');
         });
 
         // ===== SCROLL DES FILTRES =====
@@ -1908,7 +2271,7 @@
             const query = promptInput.value.trim();
             
             if (!query) {
-                showToast('‚ö†Ô∏è S√©lectionnez des filtres ou d√©crivez votre recherche', '‚ö†Ô∏è', 'error');
+                showToast('?? SÈlectionnez des filtres ou dÈcrivez votre recherche', '??', 'error');
                 promptInput.focus();
                 return;
             }
@@ -1921,23 +2284,76 @@
             console.log('Target:', state.target);
             console.log('Interests:', state.interests);
             console.log('Categories:', state.categories);
-            console.log('Provenance:', state.provenance, '‚Üí', state.provenanceLabel);
-            console.log('Langue:', state.language, '‚Üí', state.languageLabel);
+            console.log('Provenance:', state.provenance, '?', state.provenanceLabel);
+            console.log('Langue:', state.language, '?', state.languageLabel);
             
-            showToast('üîç Recherche en cours...', 'üîç');
-            
-            // Simuler la recherche (remplacer par appel backend)
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            state.isSearching = false;
-            btnSearch.classList.remove('loading');
-            
-            // C√©l√©bration !
-            showToast('‚ú® R√©sultats trouv√©s!', '‚ú®', 'success');
-            launchConfetti();
-            
-            // TODO: Afficher les r√©sultats
+           showToast('?? Recherche en cours...', '??');
+
+            try {
+                const response = await fetch('https://alerterabais-backend.onrender.com/api/v1/search', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: query,
+                        categories: state.categories,
+                        interests: state.interests,
+                        market: state.provenance || 'CA',
+                        lang: state.language || 'fr'
+                    })
+                });
+
+                const data = await response.json();
+                console.log('RÈsultats:', data);
+
+                if (data.results && data.results.length > 0) {
+                    displayResults(query, data.results);
+                    showToast('?? ' + data.results.length + ' cadeaux trouvÈs!', '??', 'success');
+                } else {
+                    showToast('?? Aucun rÈsultat trouvÈ', '??', 'error');
+                }
+            } catch (error) {
+                console.error('Erreur recherche:', error);
+                showToast('? Erreur de connexion', '?', 'error');
+            } finally {
+                state.isSearching = false;
+                btnSearch.classList.remove('loading');
+            }
         }
+
+            
+            // Fonction pour afficher les rÈsultats
+    function displayResults(query, products) {
+        const resultsSection = document.getElementById('resultsSection');
+        const resultsQuery = document.getElementById('resultsQuery');
+        const resultsCount = document.getElementById('resultsCount');
+        const resultsGrid = document.getElementById('resultsGrid');
+        
+        resultsQuery.textContent = query;
+        resultsCount.textContent = products.length + ' produits trouvÈs';
+        
+        
+               resultsGrid.innerHTML = products.map(product => {
+            const imageUrl = product.image || product.image_url || '';
+            const hasValidImage = imageUrl && !imageUrl.includes('placeholder') && !imageUrl.includes('no-image');
+            const fallbackImage = 'https://placehold.co/280x180/1a1a2e/16213e?text=??+Cadeau';
+            
+            return `
+            <div class="product-card">
+                <img class="product-image" 
+                     src="${hasValidImage ? imageUrl : fallbackImage}" 
+                     alt="${product.title || product.name}"
+                     onerror="this.onerror=null; this.src='${fallbackImage}';"
+                     loading="lazy">
+                <h3 class="product-title">${product.title || product.name}</h3>
+                <div class="product-price">${product.price || 'Prix sur demande'}</div>
+                <div class="product-source">${product.source || product.affiliate || 'Partenaire'}</div>
+                <a href="${product.url || product.affiliate_url || product.affiliate_link || '#'}" target="_blank" rel="noopener" class="product-link">?? Voir l'offre</a>
+            </div>
+        `}).join('');
+        
+        resultsSection.style.display = 'block';
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
 
         btnSearch.addEventListener('click', performSearch);
 
@@ -1979,7 +2395,7 @@
                     chip.setAttribute('aria-pressed', 'false');
                 });
                 buildAutoPrompt();
-                showToast('üóëÔ∏è Recherche effac√©e', 'üóëÔ∏è');
+                showToast('??? Recherche effacÈe', '???');
             }
         });
 
@@ -1987,22 +2403,22 @@
         btnShare.addEventListener('click', async () => {
             const query = promptInput.value.trim() || 'Trouve le cadeau parfait avec l\'IA!';
             const shareData = {
-                title: 'TrouveUnCadeau.xyz',
+                title: 'AlerteRabais.com',
                 text: query,
-                url: 'https://trouveuncadeau.xyz'
+                url: 'https://AlerteRabais.com'
             };
             
             try {
                 if (navigator.share) {
                     await navigator.share(shareData);
-                    showToast('‚úì Partag√©!', 'üì§', 'success');
+                    showToast('? PartagÈ!', '??', 'success');
                 } else {
                     // Fallback: copier le lien
-                    await navigator.clipboard.writeText('https://trouveuncadeau.xyz');
-                    showToast('‚úì Lien copi√©!', 'üìã', 'success');
+                    await navigator.clipboard.writeText('https://AlerteRabais.com');
+                    showToast('? Lien copiÈ!', '??', 'success');
                 }
             } catch (err) {
-                console.log('Partage annul√©');
+                console.log('Partage annulÈ');
             }
         });
 
@@ -2024,7 +2440,7 @@
         }
 
         // ===== TOAST =====
-        function showToast(message, icon = '‚úì', type = '') {
+        function showToast(message, icon = '?', type = '') {
             toastText.textContent = message;
             toastIcon.textContent = icon;
             toast.className = 'toast show ' + type;
@@ -2034,9 +2450,34 @@
         // ===== INIT =====
         buildAutoPrompt();
         
-        // Tracking analytics (remplacer par vraie impl√©mentation)
-        console.log('üìä V23 Syst√®me Provenance G√©ographique charg√©');
-        console.log('üéØ Pr√™t pour le GO LIVE!');
+        // Tracking analytics (remplacer par vraie implÈmentation)
+        console.log('?? V23 SystËme Provenance GÈographique chargÈ');
+        console.log('?? PrÍt pour le GO LIVE!');
     </script>
+<script src="connexion.js"></script>
+
+<!-- Footer ConformitÈ -->
+<footer style="background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.1); padding: 25px 20px; text-align: center; margin-top: 50px;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div style="margin-bottom: 15px;">
+            <a href="/divulgation.html" style="color: #a1a1aa; text-decoration: none; margin: 0 12px; font-size: 14px;">Divulgation</a>
+            <span style="color: #52525b;">|</span>
+            <a href="/confidentialite.html" style="color: #a1a1aa; text-decoration: none; margin: 0 12px; font-size: 14px;">Confidentialite</a>
+            <span style="color: #52525b;">|</span>
+            <a href="/conditions.html" style="color: #a1a1aa; text-decoration: none; margin: 0 12px; font-size: 14px;">Conditions</a>
+            <span style="color: #52525b;">|</span>
+            <a href="/cgu.html" style="color: #a1a1aa; text-decoration: none; margin: 0 12px; font-size: 14px;">CGU</a>
+        </div>
+        <p style="color: #71717a; font-size: 13px; margin: 0;">2024-2025 AlerteRabais.com - Saguenay-Lac-Saint-Jean, Quebec</p>
+        <p style="color: #52525b; font-size: 11px; margin-top: 8px;">Ce site participe a des programmes d affiliation. <a href="/divulgation.html" style="color: #00D9FF;">En savoir plus</a></p>
+    </div>
+</footer>
 </body>
 </html>
+
+
+
+
+
+
+
