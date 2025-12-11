@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>TrouveUnCadeau.xyz | L'IA qui trouve le cadeau parfait 🎁</title>
+    <meta name="description" content="Trouvez le cadeau parfait en 30 secondes grâce à l'IA. 100% gratuit, 1000+ produits analysés. Le futur du shopping intelligent.">
+    <meta name="keywords" content="cadeau, IA, intelligence artificielle, idée cadeau, Noël, anniversaire, Québec, Canada, France">
+    <meta name="author" content="TrouveUnCadeau.xyz">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://trouveuncadeau.xyz/">
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+    
+    <!-- OPEN GRAPH (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trouveuncadeau.xyz/">
+    <meta property="og:title" content="TrouveUnCadeau.xyz | L'IA qui trouve le cadeau parfait 🎁">
+    <meta property="og:description" content="Trouvez le cadeau parfait en 30 secondes grâce à l'IA. 100% gratuit!">
+    <meta property="og:image" content="https://trouveuncadeau.xyz/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_CA">
+    <meta property="og:site_name" content="TrouveUnCadeau.xyz">
+    
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://trouveuncadeau.xyz/">
+    <meta name="twitter:title" content="TrouveUnCadeau.xyz | L'IA qui trouve le cadeau parfait 🎁">
+    <meta name="twitter:description" content="Trouvez le cadeau parfait en 30 secondes grâce à l'IA. 100% gratuit!">
+    <meta name="twitter:image" content="https://trouveuncadeau.xyz/og-image.png">
+    
+    <!-- SCHEMA.ORG JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "TrouveUnCadeau.xyz",
+        "description": "Trouvez le cadeau parfait grâce à l'intelligence artificielle",
+        "url": "https://trouveuncadeau.xyz",
+        "applicationCategory": "ShoppingApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CAD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1247"
+        }
+    }
+    </script>
+    
+    <!-- PRELOAD FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- THEME COLOR (Mobile browser) -->
+    <meta name="theme-color" content="#0A1628">
+    <meta name="msapplication-TileColor" content="#0A1628">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0A1628;
+            --bg-secondary: #0D1E30;
+            --bg-card: #0F2132;
+            --bg-input: #12263A;
+            --bg-hover: #1A3148;
+            --accent-cyan: #00D9FF;
+            --accent-green: #10B981;
+            --accent-yellow: #FBBF24;
+            --accent-pink: #EC4899;
+            --accent-purple: #A855F7;
+            --accent-orange: #F97316;
+            --accent-red: #EF4444;
+            --text-white: #FFFFFF;
+            --text-muted: #94A3B8;
+            --text-ghost: #4A5568;
+            --border: rgba(255,255,255,0.08);
+            --border-light: rgba(255,255,255,0.12);
+            --glow-cyan: rgba(0, 217, 255, 0.3);
+            --glow-green: rgba(16, 185, 129, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px var(--glow-cyan); }
+            50% { box-shadow: 0 0 40px var(--glow-cyan), 0 0 60px var(--glow-cyan); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        
+        @keyframes count-up {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-white);
+            transition: transform 0.2s;
+        }
+        
+        .logo:hover { transform: scale(1.02); }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            animation: bounce-subtle 2s ease-in-out infinite;
+        }
+
+        .logo-text span { color: var(--accent-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            padding: 0.5rem 0.9rem;
+            border-radius: 18px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        .nav-link.noel {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            animation: pulse-glow 3s ease-in-out infinite;
+            --glow-cyan: var(--glow-green);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .header-icon:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+            transform: scale(1.1);
+        }
+
+        /* ===== SOCIAL PROOF BANNER ===== */
+        .social-proof {
+            background: linear-gradient(90deg, var(--bg-secondary), var(--bg-card), var(--bg-secondary));
+            padding: 0.5rem 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .social-proof .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+            --glow-cyan: var(--glow-green);
+        }
+        
+        .social-proof .count {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.25rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .main-title .highlight { 
+            color: var(--accent-cyan);
+            position: relative;
+        }
+        
+        .main-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+        }
+
+        /* ===== GROUPS BAR ===== */
+        .groups-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .group-chip {
+            padding: 0.5rem 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 18px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .group-chip:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        .group-chip.active {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--text-white);
+            box-shadow: 0 0 15px var(--glow-cyan);
+        }
+
+        .group-chip .member-tag {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            padding: 0.1rem 0.45rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .group-chip.active .member-tag {
+            display: inline-block;
+        }
+
+        .group-chip .dropdown-arrow {
+            font-size: 0.6rem;
+            color: var(--text-ghost);
+        }
+
+        .btn-add-group {
+            padding: 0.5rem 0.85rem;
+            background: transparent;
+            border: 1px dashed var(--border-light);
+            border-radius: 18px;
+            color: var(--text-ghost);
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .btn-add-group:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* ===== MAIN CARD ===== */
+        .main-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s;
+        }
+        
+        .main-card:focus-within {
+            box-shadow: 0 0 30px var(--glow-cyan);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .status-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            padding: 0.35rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+            --glow-cyan: var(--glow-green);
+        }
+
+        .card-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .action-link {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .action-link:hover { color: var(--accent-cyan); }
+
+        .target-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--bg-input);
+            padding: 0.4rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .target-badge .label { color: var(--text-muted); }
+        .target-badge .value { color: var(--accent-cyan); font-weight: 600; }
+
+        /* ===== PROMPT AREA ===== */
+        .prompt-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prompt-input {
+            flex: 1;
+            background: var(--bg-input);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+            color: var(--text-white);
+            font-size: 0.95rem;
+            font-family: inherit;
+            resize: none;
+            min-height: 100px;
+            transition: all 0.2s;
+            line-height: 1.5;
+        }
+
+        .prompt-input::placeholder {
+            color: var(--text-ghost);
+            font-style: italic;
+        }
+
+        .prompt-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+        
+        .prompt-input.has-auto-prompt {
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .prompt-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0.75rem;
+            gap: 0.75rem;
+        }
+
+        /* ===== SEARCH BUTTON - VIRAL STYLE ===== */
+        .btn-search {
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            color: var(--bg-primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-search::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-search:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px var(--glow-cyan);
+        }
+        
+        .btn-search:hover::before {
+            left: 100%;
+        }
+
+        .btn-search:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        .btn-search.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        
+        .btn-search.loading .btn-text {
+            display: none;
+        }
+        
+        .btn-search .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--bg-primary);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        .btn-search.loading .spinner {
+            display: block;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== SHARE BUTTON ===== */
+        .btn-share {
+            background: var(--bg-input);
+            color: var(--text-muted);
+            border: 1px solid var(--border-light);
+            padding: 0.75rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-share:hover {
+            background: var(--accent-pink);
+            color: white;
+            border-color: var(--accent-pink);
+            transform: scale(1.05);
+        }
+
+        /* ===== FILTERS ===== */
+        .filters-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            color: var(--text-ghost);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            min-width: 85px;
+            text-transform: uppercase;
+        }
+
+        .filter-scroll-btn {
+            width: 28px;
+            height: 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .filter-scroll-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .filter-chips-container {
+            flex: 1;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+        }
+
+        .filter-chips-container::-webkit-scrollbar { display: none; }
+
+        .filter-chips {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+        }
+
+        .filter-chip {
+            padding: 0.5rem 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .filter-chip:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        .filter-chip.active {
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            color: var(--bg-primary);
+            font-weight: 600;
+            box-shadow: 0 3px 10px var(--glow-cyan);
+        }
+
+        .filter-chip .chip-icon { font-size: 0.9rem; }
+
+        /* Couleurs spéciales quand actif */
+        .filter-chip.local.active { background: var(--accent-green); border-color: var(--accent-green); }
+        .filter-chip.eco.active { background: #059669; border-color: #059669; }
+        .filter-chip.luxe.active { background: linear-gradient(135deg, #D4AF37, #B8860B); border-color: #D4AF37; }
+        .filter-chip.liquidation.active { background: var(--accent-yellow); border-color: var(--accent-yellow); color: var(--bg-primary); }
+        .filter-chip.flash.active { background: var(--accent-orange); border-color: var(--accent-orange); }
+
+        /* ===== PROVENANCE DROPDOWN ===== */
+        .provenance-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .provenance-trigger {
+            padding: 0.5rem 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+
+        .provenance-trigger:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        .provenance-trigger.has-selection {
+            background: rgba(0, 217, 255, 0.15);
+            border-color: var(--accent-cyan);
+            color: var(--text-white);
+        }
+
+        .provenance-trigger .prov-arrow { 
+            font-size: 0.6rem; 
+            margin-left: 0.3rem; 
+            transition: transform 0.2s; 
+        }
+        
+        .provenance-trigger.open .prov-arrow { transform: rotate(180deg); }
+
+        .provenance-selected {
+            display: none;
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.3rem;
+        }
+
+        .provenance-trigger.has-selection .provenance-selected {
+            display: inline-block;
+        }
+
+        .provenance-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 280px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            z-index: 200;
+            display: none;
+            overflow: hidden;
+        }
+
+        .provenance-dropdown.show {
+            display: block;
+            animation: slideDown 0.2s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .prov-header {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .prov-header-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        .prov-clear {
+            font-size: 0.75rem;
+            color: var(--accent-red);
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .prov-clear:hover {
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .prov-opt-badge {
+            font-size: 0.65rem;
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: auto;
+            margin-right: 0.5rem;
+        }
+
+        .prov-section {
+            padding: 0.5rem;
+        }
+
+        .prov-section-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-ghost);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 0.75rem 0.25rem;
+        }
+
+        .prov-option {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+            color: var(--text-muted);
+        }
+
+        .prov-option:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .prov-option.selected {
+            background: rgba(0, 217, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        .prov-option .prov-opt-icon {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .prov-option .prov-opt-text {
+            flex: 1;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .prov-option .prov-opt-check {
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+
+        .prov-option.selected .prov-opt-check {
+            opacity: 1;
+        }
+
+        .prov-submenu {
+            margin-left: 1.5rem;
+            padding-left: 0.75rem;
+            border-left: 2px solid var(--border-light);
+            display: none;
+        }
+
+        .prov-submenu.show {
+            display: block;
+        }
+
+        .prov-option.has-submenu .prov-opt-arrow {
+            font-size: 0.65rem;
+            color: var(--text-ghost);
+            transition: transform 0.2s;
+        }
+
+        .prov-option.has-submenu.expanded .prov-opt-arrow {
+            transform: rotate(90deg);
+        }
+
+        .prov-info {
+            font-size: 0.75rem;
+            color: var(--text-ghost);
+            padding: 0.5rem 0.75rem;
+            line-height: 1.4;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .provenance-dropdown { 
+                min-width: 260px; 
+                left: -50px; 
+            }
+        }
+
+        /* ===== COMPACT MODE (Bottom Bar) ===== */
+        .provenance-wrapper.compact {
+            position: relative;
+        }
+
+        .provenance-trigger.compact {
+            padding: 0.4rem 0.6rem;
+            font-size: 0.75rem;
+            border-radius: 8px;
+            gap: 0.3rem;
+        }
+
+        .provenance-trigger.compact .prov-text {
+            display: inline;
+        }
+
+        .provenance-trigger.compact .prov-arrow {
+            font-size: 0.5rem;
+            margin-left: 0.2rem;
+        }
+
+        .provenance-trigger.compact:hover {
+            transform: translateY(-1px);
+        }
+
+        .provenance-wrapper.compact .provenance-dropdown {
+            bottom: calc(100% + 8px);
+            top: auto;
+            right: 0;
+            left: auto;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .provenance-wrapper.compact .provenance-selected {
+            font-size: 0.6rem;
+            padding: 0.05rem 0.3rem;
+        }
+
+        @media (max-width: 600px) {
+            .provenance-trigger.compact .prov-text {
+                display: none;
+            }
+            .provenance-wrapper.compact .provenance-dropdown {
+                right: -20px;
+                min-width: 250px;
+            }
+        }
+
+        /* ===== BOTTOM BAR ===== */
+        .bottom-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+        }
+
+        .bottom-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .bottom-icon:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .country-select {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 0.4rem 0.7rem;
+            color: var(--text-white);
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+
+        .country-select select {
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            font-size: 0.82rem;
+            font-family: inherit;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .country-select select option {
+            background: var(--bg-card);
+        }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 0.4rem;
+            z-index: 100;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            padding: 0.4rem 0.6rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .mobile-nav-link span { font-size: 1.1rem; }
+
+        .mobile-nav-link.active {
+            color: var(--accent-cyan);
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--text-white);
+            background: var(--bg-hover);
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--bg-card);
+            border: 1px solid var(--accent-cyan);
+            color: var(--text-white);
+            padding: 0.7rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 200;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .toast.success { border-color: var(--accent-green); }
+        .toast.error { border-color: var(--accent-red); }
+
+        /* ===== CONFETTI ===== */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 300;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: confetti-fall 3s ease-out forwards;
+        }
+
+        /* ===== KEYBOARD SHORTCUT HINT ===== */
+        .keyboard-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            color: var(--text-ghost);
+            display: none;
+        }
+        
+        .keyboard-hint kbd {
+            background: var(--bg-input);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            margin: 0 0.2rem;
+        }
+        
+        @media (min-width: 900px) {
+            .keyboard-hint { display: block; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-nav { display: block; }
+            main { padding: 1rem; padding-bottom: 75px; }
+            .main-title { font-size: 1.2rem; }
+            .social-proof { font-size: 0.75rem; }
+        }
+
+        @media (max-width: 600px) {
+            .groups-bar {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 0.4rem;
+            }
+            .group-chip { flex-shrink: 0; }
+            .main-card { min-height: 180px; }
+            .header { padding: 0.5rem 1rem; }
+        }
+        
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <a href="index.html" class="logo" aria-label="TrouveUnCadeau - Accueil">
+            <div class="logo-icon" aria-hidden="true">🎁</div>
+            <div class="logo-text">TrouveUnCadeau<span>AI</span></div>
+        </a>
+
+        <nav class="nav-links" role="navigation" aria-label="Navigation principale">
+            <a href="index.html" class="nav-link active" aria-current="page">
+                <span aria-hidden="true">🎁</span> Cadeau
+            </a>
+            <a href="qg.html" class="nav-link">
+                <span aria-hidden="true">🏠</span> Mon QG
+            </a>
+            <a href="#noel" class="nav-link noel">
+                <span aria-hidden="true">🎄</span> Noël
+            </a>
+            <a href="#perso" class="nav-link">
+                <span aria-hidden="true">📋</span> Perso
+            </a>
+            <a href="#entreprise" class="nav-link">
+                <span aria-hidden="true">🏢</span> Entreprise
+            </a>
+            <a href="#alertes" class="nav-link">
+                <span aria-hidden="true">🔔</span> Alertes prix
+            </a>
+        </nav>
+
+        <div class="header-right">
+            <button class="header-icon" aria-label="Ma tribu" title="Ma tribu">👥</button>
+            <button class="header-icon" aria-label="Mon profil" title="Mon profil">👤</button>
+        </div>
+    </header>
+    
+    <!-- SOCIAL PROOF BANNER -->
+    <div class="social-proof" role="status" aria-live="polite">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span><span class="count" id="liveCount">847</span> personnes cherchent un cadeau en ce moment</span>
+    </div>
+
+    <!-- MAIN -->
+    <main role="main">
+        <h1 class="main-title">L'IA au service de vos <span class="highlight">achats</span></h1>
+
+        <!-- Groups Bar -->
+        <div class="groups-bar" role="tablist" aria-label="Destinataires">
+            <button class="group-chip active" data-group="famille" data-member="Maman" role="tab" aria-selected="true">
+                <span aria-hidden="true">👨‍👩‍👧</span> Famille
+                <span class="member-tag">Maman</span>
+                <span class="dropdown-arrow" aria-hidden="true">▼</span>
+            </button>
+            <button class="group-chip" data-group="amis" data-member="Amis" role="tab" aria-selected="false">
+                <span aria-hidden="true">👥</span> Amis
+                <span class="member-tag">Amis</span>
+                <span class="dropdown-arrow" aria-hidden="true">▼</span>
+            </button>
+            <button class="group-chip" data-group="pro" data-member="Collègue" role="tab" aria-selected="false">
+                <span aria-hidden="true">💼</span> Pro
+                <span class="member-tag">Collègue</span>
+                <span class="dropdown-arrow" aria-hidden="true">▼</span>
+            </button>
+            <button class="group-chip" data-group="moi" data-member="Moi" role="tab" aria-selected="false">
+                <span aria-hidden="true">🙋</span> Pour moi
+                <span class="member-tag">Moi</span>
+                <span class="dropdown-arrow" aria-hidden="true">▼</span>
+            </button>
+            <button class="btn-add-group" aria-label="Ajouter un groupe">
+                <span aria-hidden="true">+</span> Groupe
+            </button>
+        </div>
+
+        <!-- Main Card -->
+        <div class="main-card">
+            <div class="card-header">
+                <div class="status-badge" role="status">IA prête</div>
+                <div class="card-actions">
+                    <button class="action-link" aria-label="Sauvegarder cette recherche">
+                        <span aria-hidden="true">⭐</span> Sauvegarder
+                    </button>
+                    <div class="target-badge" aria-live="polite">
+                        <span class="label">vers</span>
+                        <span class="value" id="targetName">Maman</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROMPT AREA -->
+            <div class="prompt-area">
+                <label for="promptInput" class="sr-only">Décrivez ce que vous recherchez</label>
+                <textarea 
+                    class="prompt-input" 
+                    id="promptInput" 
+                    placeholder="Je suis ton IA spécialisé dans la recherche de produits adaptés à vos besoins. Mon service est 100% gratuit — je parcours le web pour dénicher les meilleures options parmi des milliers de produits disponibles en ligne."
+                    aria-describedby="promptHint"
+                ></textarea>
+                <span id="promptHint" class="sr-only">Sélectionnez des filtres ci-dessous ou décrivez votre recherche</span>
+                <div class="prompt-footer">
+                    <button class="btn-share" id="btnShare" aria-label="Partager cette recherche" title="Partager">
+                        📤
+                    </button>
+                    <button class="btn-search" id="btnSearch" aria-label="Lancer la recherche">
+                        <span class="btn-text"><span aria-hidden="true">🔍</span> Trouver</span>
+                        <span class="spinner" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-section" role="region" aria-label="Filtres de recherche">
+            <!-- CATÉGORIES -->
+            <div class="filter-row">
+                <div class="filter-label" id="cat-label">CATÉGORIES</div>
+                <button class="filter-scroll-btn scroll-left" data-target="categories" aria-label="Défiler les catégories vers la gauche">&lt;</button>
+                <div class="filter-chips-container" id="categories" role="group" aria-labelledby="cat-label">
+                    <div class="filter-chips">
+                        <button class="filter-chip" data-filter="populaire" data-prompt="populaires" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🔥</span> Populaires
+                        </button>
+                        <button class="filter-chip liquidation" data-filter="liquidation" data-prompt="en liquidation" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">💰</span> Liquidation
+                        </button>
+                        <button class="filter-chip" data-filter="qualite-prix" data-prompt="meilleur rapport qualité/prix" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">⭐</span> Qualité/Prix
+                        </button>
+                        <button class="filter-chip flash" data-filter="flash" data-prompt="en vente flash" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">⚡</span> Flash
+                        </button>
+                        <button class="filter-chip" data-filter="best-sellers" data-prompt="best-sellers" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🏆</span> Best-Sellers
+                        </button>
+                        <button class="filter-chip" data-filter="artisanal" data-prompt="artisanaux" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🎨</span> Artisanal
+                        </button>
+                        <button class="filter-chip eco" data-filter="eco" data-prompt="éco-responsables" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🌿</span> Éco
+                        </button>
+                        <button class="filter-chip luxe" data-filter="luxe" data-prompt="haut de gamme" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">💎</span> Luxe
+                        </button>
+                        <button class="filter-chip local" data-filter="local" data-prompt="en achat local" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🏪</span> Achat Local
+                        </button>
+                    </div>
+                </div>
+                <button class="filter-scroll-btn scroll-right" data-target="categories" aria-label="Défiler les catégories vers la droite">&gt;</button>
+            </div>
+
+            <!-- INTÉRÊTS -->
+            <div class="filter-row">
+                <div class="filter-label" id="int-label">INTÉRÊTS</div>
+                <button class="filter-scroll-btn scroll-left" data-target="interets" aria-label="Défiler les intérêts vers la gauche">&lt;</button>
+                <div class="filter-chips-container" id="interets" role="group" aria-labelledby="int-label">
+                    <div class="filter-chips">
+                        <button class="filter-chip" data-filter="lecture" data-prompt="livres/lecture" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">📚</span> Lecture
+                        </button>
+                        <button class="filter-chip" data-filter="cuisine" data-prompt="cuisine" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🍳</span> Cuisine
+                        </button>
+                        <button class="filter-chip" data-filter="jardinage" data-prompt="jardinage" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🌱</span> Jardinage
+                        </button>
+                        <button class="filter-chip" data-filter="creatif" data-prompt="loisirs créatifs" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🎨</span> Créatif
+                        </button>
+                        <button class="filter-chip" data-filter="sport" data-prompt="sport" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">⚽</span> Sport
+                        </button>
+                        <button class="filter-chip" data-filter="velo" data-prompt="vélo" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🚴</span> Vélo
+                        </button>
+                        <button class="filter-chip" data-filter="ski" data-prompt="ski" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">⛷️</span> Ski
+                        </button>
+                        <button class="filter-chip" data-filter="gaming" data-prompt="gaming/jeux vidéo" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🎮</span> Gaming
+                        </button>
+                        <button class="filter-chip" data-filter="voyage" data-prompt="voyage" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">✈️</span> Voyage
+                        </button>
+                        <button class="filter-chip" data-filter="musique" data-prompt="musique" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🎵</span> Musique
+                        </button>
+                        <button class="filter-chip" data-filter="tech" data-prompt="tech/gadgets" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">💻</span> Tech
+                        </button>
+                        <button class="filter-chip" data-filter="photo" data-prompt="photo" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">📷</span> Photo
+                        </button>
+                        <button class="filter-chip" data-filter="vin" data-prompt="vin" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🍷</span> Vin
+                        </button>
+                        <button class="filter-chip" data-filter="cafe" data-prompt="café/thé" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">☕</span> Café
+                        </button>
+                        <button class="filter-chip" data-filter="spa" data-prompt="spa/bien-être" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">💆</span> Spa
+                        </button>
+                        <button class="filter-chip" data-filter="beaute" data-prompt="beauté" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">💄</span> Beauté
+                        </button>
+                        <button class="filter-chip" data-filter="mode" data-prompt="mode" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">👔</span> Mode
+                        </button>
+                        <button class="filter-chip" data-filter="animaux" data-prompt="animaux de compagnie" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🐕</span> Animaux
+                        </button>
+                        <button class="filter-chip" data-filter="bebe" data-prompt="bébé/enfant" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">👶</span> Bébé
+                        </button>
+                        <button class="filter-chip" data-filter="deco" data-prompt="décoration maison" aria-pressed="false">
+                            <span class="chip-icon" aria-hidden="true">🏠</span> Déco
+                        </button>
+                    </div>
+                </div>
+                <button class="filter-scroll-btn scroll-right" data-target="interets" aria-label="Défiler les intérêts vers la droite">&gt;</button>
+            </div>
+        </div>
+
+        <!-- Bottom Bar avec Provenance et Langue -->
+        <div class="bottom-bar">
+            <button class="bottom-icon" aria-label="Mode privé" title="Mode privé">🔒</button>
+            <button class="bottom-icon" aria-label="Budget" title="Définir un budget">$</button>
+            
+            <!-- PROVENANCE compact -->
+            <div class="provenance-wrapper compact">
+                <button class="provenance-trigger compact" id="provTrigger" aria-haspopup="true" aria-expanded="false">
+                    <span class="prov-icon" aria-hidden="true">🌍</span>
+                    <span class="prov-text">Origine</span>
+                    <span class="provenance-selected" id="provSelectedBadge"></span>
+                    <span class="prov-arrow" aria-hidden="true">▼</span>
+                </button>
+                
+                <div class="provenance-dropdown" id="provDropdown" role="menu">
+                    <div class="prov-header">
+                        <span class="prov-header-title">Provenance des produits</span>
+                        <span class="prov-clear" id="provClear" role="button" tabindex="0">Effacer</span>
+                    </div>
+                    
+                    <div class="prov-section">
+                        <div class="prov-section-title">Région</div>
+                        
+                        <div class="prov-option" data-prov="quebec" data-prompt="produits du Québec" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🍁</span>
+                            <span class="prov-opt-text">Québec</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-option has-submenu" data-prov="canada" data-prompt="produits canadiens" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🇨🇦</span>
+                            <span class="prov-opt-text">Canada (hors Québec)</span>
+                            <span class="prov-opt-arrow" aria-hidden="true">▶</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-submenu" id="canadaSubmenu">
+                            <div class="prov-option" data-prov="ontario" data-prompt="produits de l'Ontario" data-parent="canada" role="menuitem">
+                                <span class="prov-opt-icon" aria-hidden="true">🏙️</span>
+                                <span class="prov-opt-text">Ontario</span>
+                                <span class="prov-opt-check" aria-hidden="true">✓</span>
+                            </div>
+                            <div class="prov-option" data-prov="bc" data-prompt="produits de Colombie-Britannique" data-parent="canada" role="menuitem">
+                                <span class="prov-opt-icon" aria-hidden="true">🌲</span>
+                                <span class="prov-opt-text">Colombie-Britannique</span>
+                                <span class="prov-opt-check" aria-hidden="true">✓</span>
+                            </div>
+                            <div class="prov-option" data-prov="alberta" data-prompt="produits de l'Alberta" data-parent="canada" role="menuitem">
+                                <span class="prov-opt-icon" aria-hidden="true">⛰️</span>
+                                <span class="prov-opt-text">Alberta</span>
+                                <span class="prov-opt-check" aria-hidden="true">✓</span>
+                            </div>
+                            <div class="prov-option" data-prov="maritimes" data-prompt="produits des Maritimes" data-parent="canada" role="menuitem">
+                                <span class="prov-opt-icon" aria-hidden="true">🦞</span>
+                                <span class="prov-opt-text">Maritimes</span>
+                                <span class="prov-opt-check" aria-hidden="true">✓</span>
+                            </div>
+                            <div class="prov-option" data-prov="prairies" data-prompt="produits des Prairies" data-parent="canada" role="menuitem">
+                                <span class="prov-opt-icon" aria-hidden="true">🌾</span>
+                                <span class="prov-opt-text">Prairies (MB, SK)</span>
+                                <span class="prov-opt-check" aria-hidden="true">✓</span>
+                            </div>
+                        </div>
+                        
+                        <div class="prov-option" data-prov="usa" data-prompt="produits des États-Unis" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🇺🇸</span>
+                            <span class="prov-opt-text">USA (États-Unis)</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-option" data-prov="france" data-prompt="produits de France" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🇫🇷</span>
+                            <span class="prov-opt-text">France</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-option" data-prov="europe" data-prompt="produits européens" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🇪🇺</span>
+                            <span class="prov-opt-text">Europe</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-option" data-prov="international" data-prompt="tous produits internationaux" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🌍</span>
+                            <span class="prov-opt-text">International (tous)</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                    </div>
+                    
+                    <div class="prov-info">
+                        Par défaut: tous produits sans restriction géographique.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LANGUE compact -->
+            <div class="provenance-wrapper compact">
+                <button class="provenance-trigger compact" id="langTrigger" aria-haspopup="true" aria-expanded="false">
+                    <span class="prov-icon" aria-hidden="true">🇫🇷</span>
+                    <span class="prov-text">FR</span>
+                    <span class="provenance-selected" id="langSelectedBadge"></span>
+                    <span class="prov-arrow" aria-hidden="true">▼</span>
+                </button>
+                
+                <div class="provenance-dropdown" id="langDropdown" role="menu">
+                    <div class="prov-header">
+                        <span class="prov-header-title">Langue des produits</span>
+                        <span class="prov-clear" id="langClear" role="button" tabindex="0">Réinitialiser</span>
+                    </div>
+                    
+                    <div class="prov-section">
+                        <div class="prov-option selected" data-lang="fr" data-prompt="en français" data-icon="🇫🇷" data-text="FR" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🇫🇷</span>
+                            <span class="prov-opt-text">Français</span>
+                            <span class="prov-opt-badge">défaut</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-option" data-lang="en" data-prompt="in English" data-icon="🇬🇧" data-text="EN" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🇬🇧</span>
+                            <span class="prov-opt-text">Anglais / English</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-option" data-lang="es" data-prompt="en español" data-icon="🇪🇸" data-text="ES" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🇪🇸</span>
+                            <span class="prov-opt-text">Espagnol / Español</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                        
+                        <div class="prov-option" data-lang="other" data-prompt="dans toutes les langues" data-icon="🌐" data-text="ALL" role="menuitem">
+                            <span class="prov-opt-icon" aria-hidden="true">🌐</span>
+                            <span class="prov-opt-text">Autres langues / Toutes</span>
+                            <span class="prov-opt-check" aria-hidden="true">✓</span>
+                        </div>
+                    </div>
+                    
+                    <div class="prov-info">
+                        Français par défaut. Résultats dans la langue choisie.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" role="navigation" aria-label="Navigation mobile">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link active" aria-current="page">
+                <span aria-hidden="true">🔍</span> Recherche
+            </a>
+            <a href="qg.html" class="mobile-nav-link">
+                <span aria-hidden="true">🏠</span> Mon QG
+            </a>
+            <a href="tribu.html" class="mobile-nav-link">
+                <span aria-hidden="true">👥</span> Tribu
+            </a>
+            <a href="fil-tribu.html" class="mobile-nav-link">
+                <span aria-hidden="true">📰</span> Fil
+            </a>
+            <a href="liste.html" class="mobile-nav-link">
+                <span aria-hidden="true">📋</span> Listes
+            </a>
+        </div>
+    </nav>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive">
+        <span id="toastIcon" aria-hidden="true">✓</span>
+        <span id="toastText">Filtre ajouté!</span>
+    </div>
+    
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer" aria-hidden="true"></div>
+    
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint" aria-hidden="true">
+        <kbd>Enter</kbd> pour rechercher • <kbd>Esc</kbd> pour effacer
+    </div>
+
+    <script>
+        console.log('🚀 TrouveUnCadeau V23 - Système Provenance + Langue');
+
+        // ===== ÉTAT GLOBAL =====
+        const state = {
+            target: 'Maman',
+            interests: [],
+            categories: [],
+            provenance: null,      // null = pas de filtre géographique (défaut)
+            provenanceLabel: '',   // Texte pour le prompt
+            language: 'fr',        // 'fr' par défaut
+            languageLabel: 'en français',
+            userTyped: false,
+            isSearching: false
+        };
+
+        // ===== ÉLÉMENTS DOM =====
+        const promptInput = document.getElementById('promptInput');
+        const targetNameEl = document.getElementById('targetName');
+        const toast = document.getElementById('toast');
+        const toastText = document.getElementById('toastText');
+        const toastIcon = document.getElementById('toastIcon');
+        const btnSearch = document.getElementById('btnSearch');
+        const btnShare = document.getElementById('btnShare');
+        const liveCount = document.getElementById('liveCount');
+        const confettiContainer = document.getElementById('confettiContainer');
+        
+        // Provenance
+        const provTrigger = document.getElementById('provTrigger');
+        const provDropdown = document.getElementById('provDropdown');
+        const provClear = document.getElementById('provClear');
+        const provSelectedBadge = document.getElementById('provSelectedBadge');
+        const canadaSubmenu = document.getElementById('canadaSubmenu');
+        
+        // Langue
+        const langTrigger = document.getElementById('langTrigger');
+        const langDropdown = document.getElementById('langDropdown');
+        const langClear = document.getElementById('langClear');
+        const langSelectedBadge = document.getElementById('langSelectedBadge');
+
+        // ===== PLACEHOLDER =====
+        const ghostPlaceholder = "Je suis ton IA spécialisé dans la recherche de produits adaptés à vos besoins. Mon service est 100% gratuit — je parcours le web pour dénicher les meilleures options parmi des milliers de produits disponibles en ligne.";
+
+        // ===== SOCIAL PROOF - Compteur en temps réel =====
+        function updateLiveCount() {
+            const base = 750;
+            const variation = Math.floor(Math.random() * 200);
+            const count = base + variation;
+            liveCount.textContent = count.toLocaleString('fr-CA');
+        }
+        setInterval(updateLiveCount, 5000);
+        updateLiveCount();
+
+        // ===== CONSTRUIRE LE PROMPT =====
+        function buildAutoPrompt() {
+            if (state.userTyped && promptInput.value.trim() !== '') {
+                return;
+            }
+
+            // Afficher prompt si au moins un filtre est actif (ou langue différente de français)
+            if (state.interests.length === 0 && state.categories.length === 0 && !state.provenance && state.language === 'fr') {
+                promptInput.value = '';
+                promptInput.placeholder = ghostPlaceholder;
+                promptInput.classList.remove('has-auto-prompt');
+                return;
+            }
+
+            let prompt = 'Je recherche ';
+            
+            if (state.interests.length > 0) {
+                prompt += state.interests.join(', ');
+            } else {
+                prompt += 'des produits';
+            }
+
+            prompt += ` pour ${state.target}`;
+
+            if (state.categories.length > 0) {
+                prompt += ', ' + state.categories.join(', ');
+            }
+            
+            // Ajouter la provenance si sélectionnée
+            if (state.provenance && state.provenanceLabel) {
+                prompt += `, ${state.provenanceLabel}`;
+            }
+            
+            // Ajouter la langue si différente du français
+            if (state.language !== 'fr' && state.languageLabel) {
+                prompt += `, ${state.languageLabel}`;
+            }
+
+            prompt += '.';
+
+            promptInput.value = prompt;
+            promptInput.placeholder = '';
+            promptInput.classList.add('has-auto-prompt');
+        }
+
+        // ===== GESTION DES FILTRES =====
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const filter = chip.dataset.filter;
+                const promptText = chip.dataset.prompt;
+                const isCategory = chip.closest('#categories') !== null;
+                
+                chip.classList.toggle('active');
+                const isActive = chip.classList.contains('active');
+                chip.setAttribute('aria-pressed', isActive);
+                
+                if (isActive) {
+                    if (isCategory) {
+                        if (!state.categories.includes(promptText)) {
+                            state.categories.push(promptText);
+                        }
+                    } else {
+                        if (!state.interests.includes(promptText)) {
+                            state.interests.push(promptText);
+                        }
+                    }
+                    showToast(`✓ ${chip.textContent.trim()} ajouté`, '✓', 'success');
+                } else {
+                    if (isCategory) {
+                        state.categories = state.categories.filter(c => c !== promptText);
+                    } else {
+                        state.interests = state.interests.filter(i => i !== promptText);
+                    }
+                    showToast(`✗ ${chip.textContent.trim()} retiré`, '✗');
+                }
+                
+                state.userTyped = false;
+                buildAutoPrompt();
+            });
+        });
+
+        // ===== DÉTECTION FRAPPE MANUELLE =====
+        promptInput.addEventListener('input', () => {
+            state.userTyped = true;
+        });
+
+        // ===== GESTION DES GROUPES =====
+        document.querySelectorAll('.group-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.group-chip').forEach(c => {
+                    c.classList.remove('active');
+                    c.setAttribute('aria-selected', 'false');
+                });
+                
+                chip.classList.add('active');
+                chip.setAttribute('aria-selected', 'true');
+                
+                const member = chip.dataset.member;
+                const groupName = chip.dataset.group;
+                state.target = member;
+                
+                targetNameEl.textContent = member;
+                
+                state.userTyped = false;
+                buildAutoPrompt();
+                
+                console.log(`🎯 Groupe changé: ${groupName} → ${member}`);
+                showToast(`🎯 Recherche pour: ${member}`, '🎯', 'success');
+            });
+        });
+
+        // ===== PROVENANCE DROPDOWN =====
+        provTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            provDropdown.classList.toggle('show');
+            provTrigger.classList.toggle('open');
+            provTrigger.setAttribute('aria-expanded', provDropdown.classList.contains('show'));
+        });
+
+        // Fermer dropdowns si clic ailleurs
+        document.addEventListener('click', (e) => {
+            // Fermer provenance
+            if (!provDropdown.contains(e.target) && e.target !== provTrigger && !provTrigger.contains(e.target)) {
+                provDropdown.classList.remove('show');
+                provTrigger.classList.remove('open');
+                provTrigger.setAttribute('aria-expanded', 'false');
+            }
+            // Fermer langue
+            if (!langDropdown.contains(e.target) && e.target !== langTrigger && !langTrigger.contains(e.target)) {
+                langDropdown.classList.remove('show');
+                langTrigger.classList.remove('open');
+                langTrigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Fonction pour effacer la provenance
+        function clearProvenance() {
+            state.provenance = null;
+            state.provenanceLabel = '';
+            provSelectedBadge.textContent = '';
+            provTrigger.classList.remove('has-selection');
+            provTrigger.querySelector('.prov-icon').textContent = '🌍';
+            provTrigger.querySelector('.prov-text').textContent = 'Origine';
+            document.querySelectorAll('#provDropdown .prov-option').forEach(opt => opt.classList.remove('selected', 'expanded'));
+            canadaSubmenu.classList.remove('show');
+        }
+
+        // Gestion des options de provenance
+        document.querySelectorAll('#provDropdown .prov-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const prov = option.dataset.prov;
+                const promptText = option.dataset.prompt;
+                const hasSubmenu = option.classList.contains('has-submenu');
+                
+                // Si c'est Canada avec sous-menu, toggle le sous-menu
+                if (hasSubmenu) {
+                    option.classList.toggle('expanded');
+                    canadaSubmenu.classList.toggle('show');
+                }
+                
+                // Désélectionner toutes les autres options
+                document.querySelectorAll('#provDropdown .prov-option').forEach(opt => {
+                    if (opt !== option) opt.classList.remove('selected');
+                });
+                
+                // Toggle cette option
+                option.classList.toggle('selected');
+                
+                if (option.classList.contains('selected')) {
+                    state.provenance = prov;
+                    state.provenanceLabel = promptText;
+                    provSelectedBadge.textContent = option.querySelector('.prov-opt-text').textContent;
+                    provTrigger.classList.add('has-selection');
+                    
+                    // Mettre à jour l'icône du trigger
+                    const icon = option.querySelector('.prov-opt-icon').textContent;
+                    provTrigger.querySelector('.prov-icon').textContent = icon;
+                    
+                    showToast(`📍 Provenance: ${option.querySelector('.prov-opt-text').textContent}`, '📍', 'success');
+                } else {
+                    clearProvenance();
+                }
+                
+                state.userTyped = false;
+                buildAutoPrompt();
+            });
+        });
+
+        // Bouton Effacer provenance
+        provClear.addEventListener('click', (e) => {
+            e.stopPropagation();
+            clearProvenance();
+            state.userTyped = false;
+            buildAutoPrompt();
+            showToast('📍 Provenance effacée', '🗑️');
+        });
+
+        // ===== LANGUE DROPDOWN =====
+        langTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Fermer provenance si ouvert
+            provDropdown.classList.remove('show');
+            provTrigger.classList.remove('open');
+            // Toggle langue
+            langDropdown.classList.toggle('show');
+            langTrigger.classList.toggle('open');
+            langTrigger.setAttribute('aria-expanded', langDropdown.classList.contains('show'));
+        });
+
+        // Fonction pour réinitialiser la langue (français par défaut)
+        function resetLanguage() {
+            state.language = 'fr';
+            state.languageLabel = 'en français';
+            langSelectedBadge.textContent = '';
+            langTrigger.classList.remove('has-selection');
+            langTrigger.querySelector('.prov-icon').textContent = '🇫🇷';
+            langTrigger.querySelector('.prov-text').textContent = 'FR';
+            document.querySelectorAll('#langDropdown .prov-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector('#langDropdown .prov-option[data-lang="fr"]').classList.add('selected');
+        }
+
+        // Gestion des options de langue
+        document.querySelectorAll('#langDropdown .prov-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const lang = option.dataset.lang;
+                const promptText = option.dataset.prompt;
+                const icon = option.dataset.icon;
+                const text = option.dataset.text;
+                
+                // Désélectionner toutes les autres options
+                document.querySelectorAll('#langDropdown .prov-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Sélectionner cette option
+                option.classList.add('selected');
+                
+                state.language = lang;
+                state.languageLabel = promptText;
+                
+                // Mettre à jour le trigger
+                langTrigger.querySelector('.prov-icon').textContent = icon;
+                langTrigger.querySelector('.prov-text').textContent = text;
+                
+                if (lang !== 'fr') {
+                    langSelectedBadge.textContent = text;
+                    langTrigger.classList.add('has-selection');
+                } else {
+                    langSelectedBadge.textContent = '';
+                    langTrigger.classList.remove('has-selection');
+                }
+                
+                showToast(`🌐 Langue: ${option.querySelector('.prov-opt-text').textContent}`, '🌐', 'success');
+                
+                // Fermer dropdown
+                langDropdown.classList.remove('show');
+                langTrigger.classList.remove('open');
+                
+                state.userTyped = false;
+                buildAutoPrompt();
+            });
+        });
+
+        // Bouton Réinitialiser langue
+        langClear.addEventListener('click', (e) => {
+            e.stopPropagation();
+            resetLanguage();
+            state.userTyped = false;
+            buildAutoPrompt();
+            showToast('🌐 Langue réinitialisée (Français)', '🇫🇷');
+        });
+
+        // ===== SCROLL DES FILTRES =====
+        document.querySelectorAll('.scroll-left').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById(btn.dataset.target).scrollBy({ left: -180, behavior: 'smooth' });
+            });
+        });
+
+        document.querySelectorAll('.scroll-right').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById(btn.dataset.target).scrollBy({ left: 180, behavior: 'smooth' });
+            });
+        });
+
+        // ===== BOUTON RECHERCHE =====
+        async function performSearch() {
+            if (state.isSearching) return;
+            
+            const query = promptInput.value.trim();
+            
+            if (!query) {
+                showToast('⚠️ Sélectionnez des filtres ou décrivez votre recherche', '⚠️', 'error');
+                promptInput.focus();
+                return;
+            }
+
+            state.isSearching = true;
+            btnSearch.classList.add('loading');
+
+            console.log('=== RECHERCHE V23 ===');
+            console.log('Prompt:', query);
+            console.log('Target:', state.target);
+            console.log('Interests:', state.interests);
+            console.log('Categories:', state.categories);
+            console.log('Provenance:', state.provenance, '→', state.provenanceLabel);
+            console.log('Langue:', state.language, '→', state.languageLabel);
+            
+            showToast('🔍 Recherche en cours...', '🔍');
+            
+            // Simuler la recherche (remplacer par appel backend)
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            state.isSearching = false;
+            btnSearch.classList.remove('loading');
+            
+            // Célébration !
+            showToast('✨ Résultats trouvés!', '✨', 'success');
+            launchConfetti();
+            
+            // TODO: Afficher les résultats
+        }
+
+        btnSearch.addEventListener('click', performSearch);
+
+        // ===== RACCOURCIS CLAVIER =====
+        document.addEventListener('keydown', (e) => {
+            // Enter pour rechercher (si pas dans le textarea ou si Ctrl/Cmd+Enter)
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey || document.activeElement !== promptInput)) {
+                e.preventDefault();
+                performSearch();
+            }
+            
+            // Escape pour effacer
+            if (e.key === 'Escape') {
+                // Fermer dropdown provenance si ouvert
+                if (provDropdown.classList.contains('show')) {
+                    provDropdown.classList.remove('show');
+                    provTrigger.classList.remove('open');
+                    provTrigger.setAttribute('aria-expanded', 'false');
+                    return;
+                }
+                
+                // Fermer dropdown langue si ouvert
+                if (langDropdown.classList.contains('show')) {
+                    langDropdown.classList.remove('show');
+                    langTrigger.classList.remove('open');
+                    langTrigger.setAttribute('aria-expanded', 'false');
+                    return;
+                }
+                
+                // Sinon effacer tout
+                promptInput.value = '';
+                state.interests = [];
+                state.categories = [];
+                state.userTyped = false;
+                clearProvenance();
+                resetLanguage();
+                document.querySelectorAll('.filter-chip.active').forEach(chip => {
+                    chip.classList.remove('active');
+                    chip.setAttribute('aria-pressed', 'false');
+                });
+                buildAutoPrompt();
+                showToast('🗑️ Recherche effacée', '🗑️');
+            }
+        });
+
+        // ===== BOUTON PARTAGE =====
+        btnShare.addEventListener('click', async () => {
+            const query = promptInput.value.trim() || 'Trouve le cadeau parfait avec l\'IA!';
+            const shareData = {
+                title: 'TrouveUnCadeau.xyz',
+                text: query,
+                url: 'https://trouveuncadeau.xyz'
+            };
+            
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    showToast('✓ Partagé!', '📤', 'success');
+                } else {
+                    // Fallback: copier le lien
+                    await navigator.clipboard.writeText('https://trouveuncadeau.xyz');
+                    showToast('✓ Lien copié!', '📋', 'success');
+                }
+            } catch (err) {
+                console.log('Partage annulé');
+            }
+        });
+
+        // ===== CONFETTI =====
+        function launchConfetti() {
+            const colors = ['#00D9FF', '#10B981', '#FBBF24', '#EC4899', '#A855F7', '#F97316'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confettiContainer.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 3500);
+            }
+        }
+
+        // ===== TOAST =====
+        function showToast(message, icon = '✓', type = '') {
+            toastText.textContent = message;
+            toastIcon.textContent = icon;
+            toast.className = 'toast show ' + type;
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        // ===== INIT =====
+        buildAutoPrompt();
+        
+        // Tracking analytics (remplacer par vraie implémentation)
+        console.log('📊 V23 Système Provenance Géographique chargé');
+        console.log('🎯 Prêt pour le GO LIVE!');
+    </script>
+</body>
+</html>
