@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -295,14 +295,14 @@
     <div class="container">
         <div class="logo">
             <a href="index.html">
-                <div class="logo-icon">??</div>
+                <div class="logo-icon">üéÅ</div>
                 <span>AlerteRabais<span style="color: var(--accent-cyan)">AI</span></span>
             </a>
         </div>
         
         <div class="auth-card">
-            <h1>Bon retour ! ??</h1>
-            <p>Connectez-vous pour accÈder ‡ votre compte</p>
+            <h1>Bon retour ! üëã</h1>
+            <p>Connectez-vous pour acc√©der √† votre compte</p>
             
             <div class="error-message" id="errorMsg"></div>
             <div class="success-message" id="successMsg"></div>
@@ -315,9 +315,9 @@
                 
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="ïïïïïïïï" required>
+                    <input type="password" id="password" name="password" placeholder="‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢" required>
                     <div class="forgot-password">
-                        <a href="#" id="forgotPassword">Mot de passe oubliÈ ?</a>
+                        <a href="#" id="forgotPassword">Mot de passe oubli√© ?</a>
                     </div>
                 </div>
                 
@@ -342,7 +342,7 @@
             </button>
             
             <div class="auth-footer">
-                Pas encore de compte ? <a href="signup.html">CrÈer un compte gratuit</a>
+                Pas encore de compte ? <a href="signup.html">Cr√©er un compte gratuit</a>
             </div>
         </div>
     </div>
@@ -405,7 +405,7 @@
                 
                 if (error) throw error;
                 
-                showSuccess('Connexion rÈussie ! Redirection...');
+                showSuccess('Connexion r√©ussie ! Redirection...');
                 setTimeout(() => {
                     window.location.href = 'index.html';
                 }, 1000);
@@ -440,7 +440,7 @@
             const email = document.getElementById('email').value;
             
             if (!email) {
-                showError('Entrez votre email pour rÈinitialiser le mot de passe');
+                showError('Entrez votre email pour r√©initialiser le mot de passe');
                 return;
             }
             
@@ -449,7 +449,7 @@
                     redirectTo: window.location.origin + '/reset-password.html'
                 });
                 if (error) throw error;
-                showSuccess('Email de rÈinitialisation envoyÈ !');
+                showSuccess('Email de r√©initialisation envoy√© !');
             } catch (error) {
                 showError(error.message);
             }
@@ -457,8 +457,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
