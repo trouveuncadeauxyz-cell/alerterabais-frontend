@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon QG Cadeaux | AlerteRabais.com</title>
+    <meta name="description" content="Votre tableau de bord personnel pour gérer vos cadeaux, anniversaires et événements importants.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0A1628;
+            --bg-card: #0D1E30;
+            --bg-input: #12263A;
+            --bg-hover: #1A3148;
+            --accent-cyan: #00D9FF;
+            --accent-green: #10B981;
+            --accent-yellow: #FBBF24;
+            --accent-pink: #EC4899;
+            --accent-purple: #A855F7;
+            --accent-orange: #F97316;
+            --text-white: #FFFFFF;
+            --text-muted: #94A3B8;
+            --text-ghost: #4B5563;
+            --border: rgba(255,255,255,0.08);
+            --glow-cyan: rgba(0, 217, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0F172A 100%);
+            min-height: 100vh;
+            color: var(--text-white);
+        }
+
+        /* ===== HEADER/NAV ===== */
+        .header {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .logo-text span { color: var(--accent-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .nav-link.active {
+            background: var(--glow-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-premium {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--glow-cyan);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ===== AI ASSISTANT CARD ===== */
+        .ai-assistant-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .ai-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .ai-content {
+            flex: 1;
+        }
+
+        .ai-greeting {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .ai-suggestion {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .ai-action-btn {
+            padding: 0.4rem 0.85rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-white);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .ai-action-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        /* ===== STATS GRID ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-icon.cyan { background: rgba(0, 217, 255, 0.15); }
+        .stat-icon.green { background: rgba(16, 185, 129, 0.15); }
+        .stat-icon.yellow { background: rgba(251, 191, 36, 0.15); }
+        .stat-icon.pink { background: rgba(236, 72, 153, 0.15); }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-action {
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .section-action:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== UPCOMING EVENTS ===== */
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .event-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .event-card:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent-cyan);
+        }
+
+        .event-date {
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .event-day {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .event-month {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .event-info {
+            flex: 1;
+        }
+
+        .event-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-person {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .event-badge {
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .event-badge.urgent {
+            background: rgba(239, 68, 68, 0.15);
+            color: #EF4444;
+        }
+
+        .event-badge.soon {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--accent-yellow);
+        }
+
+        .event-badge.planned {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+        }
+
+        /* ===== QUICK ACCESS GRID ===== */
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .quick-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .quick-card:hover {
+            transform: translateY(-4px);
+            background: var(--bg-hover);
+            border-color: var(--accent-cyan);
+        }
+
+        .quick-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .quick-label {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RECENT ACTIVITY ===== */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            background: var(--bg-input);
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-size: 0.9rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--text-ghost);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .ai-assistant-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ai-actions {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">🎁</div>
+            <div class="logo-text">AlerteRabais<span>AI</span></div>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">🔍 Recherche</a>
+            <a href="qg.html" class="nav-link active">🏠 Mon QG</a>
+            <a href="tribu.html" class="nav-link">👥 Ma Tribu</a>
+            <a href="fil-tribu.html" class="nav-link">📰 Fil</a>
+            <a href="liste.html" class="nav-link">📋 Listes</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="btn-premium">⭐ Premium</button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">🏠 Mon QG Cadeaux</h1>
+            <p class="page-subtitle">Votre tableau de bord personnel pour ne jamais oublier un cadeau</p>
+        </div>
+
+        <!-- AI Assistant Card -->
+        <div class="ai-assistant-card">
+            <div class="ai-avatar">🤖</div>
+            <div class="ai-content">
+                <div class="ai-greeting">Bonjour! 👋 Je suis OK QG, votre assistant cadeaux.</div>
+                <div class="ai-suggestion">L'anniversaire de <strong>Maman</strong> est dans 12 jours. Voulez-vous que je vous suggère des idées?</div>
+                <div class="ai-actions">
+                    <button class="ai-action-btn">💡 Voir les idées</button>
+                    <button class="ai-action-btn">📅 Planifier</button>
+                    <button class="ai-action-btn">💰 Définir budget</button>
+                    <button class="ai-action-btn">🔔 Me rappeler</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon cyan">👥</div>
+                <div class="stat-value">12</div>
+                <div class="stat-label">Personnes dans ma tribu</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon yellow">📅</div>
+                <div class="stat-value">3</div>
+                <div class="stat-label">Événements ce mois</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green">🎁</div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Cadeaux offerts en 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon pink">❤️</div>
+                <div class="stat-value">8</div>
+                <div class="stat-label">Idées sauvegardées</div>
+            </div>
+        </div>
+
+        <!-- Upcoming Events Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">📅 Événements à venir</h2>
+                <a href="#" class="section-action">Voir tout →</a>
+            </div>
+            <div class="events-list">
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="event-day">12</div>
+                        <div class="event-month">Déc</div>
+                    </div>
+                    <div class="event-info">
+                        <div class="event-title">🎂 Anniversaire</div>
+                        <div class="event-person">Maman - 65 ans</div>
+                    </div>
+                    <span class="event-badge urgent">Dans 12 jours</span>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="event-day">25</div>
+                        <div class="event-month">Déc</div>
+                    </div>
+                    <div class="event-info">
+                        <div class="event-title">🎄 Noël</div>
+                        <div class="event-person">Famille - 8 personnes</div>
+                    </div>
+                    <span class="event-badge soon">Dans 25 jours</span>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="event-day">15</div>
+                        <div class="event-month">Jan</div>
+                    </div>
+                    <div class="event-info">
+                        <div class="event-title">🎂 Anniversaire</div>
+                        <div class="event-person">Sophie (amie) - 30 ans</div>
+                    </div>
+                    <span class="event-badge planned">Planifié ✓</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">⚡ Accès rapide</h2>
+            </div>
+            <div class="quick-grid">
+                <a href="index.html" class="quick-card">
+                    <div class="quick-icon">🔍</div>
+                    <div class="quick-label">Nouvelle recherche</div>
+                </a>
+                <a href="tribu.html" class="quick-card">
+                    <div class="quick-icon">👤</div>
+                    <div class="quick-label">Ajouter un profil</div>
+                </a>
+                <a href="liste.html" class="quick-card">
+                    <div class="quick-icon">📝</div>
+                    <div class="quick-label">Créer une liste</div>
+                </a>
+                <a href="#" class="quick-card">
+                    <div class="quick-icon">🏷️</div>
+                    <div class="quick-label">Alertes prix</div>
+                </a>
+                <a href="fil-tribu.html" class="quick-card">
+                    <div class="quick-icon">💬</div>
+                    <div class="quick-label">Voir le fil</div>
+                </a>
+                <a href="#" class="quick-card">
+                    <div class="quick-icon">⚙️</div>
+                    <div class="quick-label">Paramètres</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Recent Activity Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">🕐 Activité récente</h2>
+                <a href="#" class="section-action">Tout voir →</a>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon">🔍</div>
+                    <div class="activity-content">
+                        <div class="activity-text">Recherche: "cadeau maman cuisine"</div>
+                        <div class="activity-time">Il y a 2 heures</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">❤️</div>
+                    <div class="activity-content">
+                        <div class="activity-text">Sauvegardé: Robot pâtissier KitchenAid</div>
+                        <div class="activity-time">Il y a 3 heures</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">👤</div>
+                    <div class="activity-content">
+                        <div class="activity-text">Profil mis à jour: Papa</div>
+                        <div class="activity-time">Hier</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">📋</div>
+                    <div class="activity-content">
+                        <div class="activity-text">Liste créée: "Noël 2025 - Famille"</div>
+                        <div class="activity-time">Il y a 2 jours</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        console.log('🏠 Mon QG Cadeaux - AlerteRabais.com');
+        
+        // Animation des cartes au chargement
+        document.querySelectorAll('.stat-card, .event-card, .quick-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.4s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 50);
+        });
+
+        // Interaction boutons AI
+        document.querySelectorAll('.ai-action-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => btn.style.transform = 'scale(1)', 150);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

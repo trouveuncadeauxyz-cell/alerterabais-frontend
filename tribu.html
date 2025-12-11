@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Tribu | AlerteRabais.com</title>
+    <meta name="description" content="Gérez vos proches, leurs préférences et ne manquez plus jamais une occasion importante.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0A1628;
+            --bg-card: #0D1E30;
+            --bg-input: #12263A;
+            --bg-hover: #1A3148;
+            --accent-cyan: #00D9FF;
+            --accent-green: #10B981;
+            --accent-yellow: #FBBF24;
+            --accent-pink: #EC4899;
+            --accent-purple: #A855F7;
+            --accent-orange: #F97316;
+            --text-white: #FFFFFF;
+            --text-muted: #94A3B8;
+            --text-ghost: #4B5563;
+            --border: rgba(255,255,255,0.08);
+            --glow-cyan: rgba(0, 217, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0F172A 100%);
+            min-height: 100vh;
+            color: var(--text-white);
+        }
+
+        /* ===== HEADER/NAV ===== */
+        .header {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .logo-text span { color: var(--accent-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .nav-link.active {
+            background: var(--glow-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-premium {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--glow-cyan);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn-add-member {
+            padding: 0.75rem 1.25rem;
+            background: var(--accent-green);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-add-member:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ===== GROUP TABS ===== */
+        .group-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .group-tab {
+            padding: 0.6rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .group-tab:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .group-tab.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .group-tab .count {
+            background: rgba(255,255,255,0.2);
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .group-tab.active .count {
+            background: rgba(0,0,0,0.2);
+        }
+
+        /* ===== MEMBERS GRID ===== */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .member-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-cyan);
+        }
+
+        .member-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .member-avatar.family { background: linear-gradient(135deg, #EC4899, #F472B6); }
+        .member-avatar.friend { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
+        .member-avatar.colleague { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+
+        .member-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .member-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .member-relation {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .member-menu {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0.25rem;
+        }
+
+        .member-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .member-detail-icon {
+            width: 20px;
+            text-align: center;
+        }
+
+        .member-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .interest-tag {
+            padding: 0.25rem 0.6rem;
+            background: var(--bg-input);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .member-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .member-action-btn {
+            flex: 1;
+            padding: 0.5rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-white);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+        }
+
+        .member-action-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .member-action-btn.primary {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .member-action-btn.primary:hover {
+            background: #00B8D9;
+        }
+
+        /* ===== ADD MEMBER CARD ===== */
+        .add-member-card {
+            background: var(--bg-card);
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 250px;
+        }
+
+        .add-member-card:hover {
+            border-color: var(--accent-cyan);
+            background: var(--bg-hover);
+        }
+
+        .add-member-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-input);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .add-member-text {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .add-member-hint {
+            color: var(--text-ghost);
+            font-size: 0.85rem;
+        }
+
+        /* ===== INVITE SECTION ===== */
+        .invite-section {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .invite-content {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .invite-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .invite-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .invite-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-invite {
+            padding: 0.6rem 1.25rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-invite.primary {
+            background: var(--accent-purple);
+            color: white;
+        }
+
+        .btn-invite.primary:hover {
+            background: #9333EA;
+        }
+
+        .btn-invite.secondary {
+            background: var(--bg-input);
+            color: var(--text-white);
+            border: 1px solid var(--border);
+        }
+
+        .btn-invite.secondary:hover {
+            background: var(--bg-hover);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .page-header {
+                flex-direction: column;
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .group-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 0.5rem;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .invite-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">🎁</div>
+            <div class="logo-text">AlerteRabais<span>AI</span></div>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">🔍 Recherche</a>
+            <a href="qg.html" class="nav-link">🏠 Mon QG</a>
+            <a href="tribu.html" class="nav-link active">👥 Ma Tribu</a>
+            <a href="fil-tribu.html" class="nav-link">📰 Fil</a>
+            <a href="liste.html" class="nav-link">📋 Listes</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="btn-premium">⭐ Premium</button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">👥 Ma Tribu</h1>
+                <p class="page-subtitle">Gérez les profils de vos proches pour des cadeaux parfaits</p>
+            </div>
+            <button class="btn-add-member" onclick="addNewMember()">
+                <span>+</span> Ajouter un membre
+            </button>
+        </div>
+
+        <!-- Group Tabs -->
+        <div class="group-tabs">
+            <button class="group-tab active" data-group="all">
+                Tous <span class="count">12</span>
+            </button>
+            <button class="group-tab" data-group="family">
+                👨‍👩‍👧‍👦 Famille <span class="count">5</span>
+            </button>
+            <button class="group-tab" data-group="friends">
+                🧑‍🤝‍🧑 Amis <span class="count">4</span>
+            </button>
+            <button class="group-tab" data-group="colleagues">
+                💼 Collègues <span class="count">3</span>
+            </button>
+        </div>
+
+        <!-- Members Grid -->
+        <div class="members-grid">
+            <!-- Member Card 1 -->
+            <div class="member-card" data-group="family">
+                <div class="member-header">
+                    <div class="member-avatar family">👩</div>
+                    <div class="member-info">
+                        <div class="member-name">Maman</div>
+                        <div class="member-relation">Mère • 65 ans</div>
+                    </div>
+                    <button class="member-menu">⋮</button>
+                </div>
+                <div class="member-details">
+                    <div class="member-detail">
+                        <span class="member-detail-icon">🎂</span>
+                        <span>12 décembre</span>
+                    </div>
+                    <div class="member-detail">
+                        <span class="member-detail-icon">👕</span>
+                        <span>Taille M • Pointure 38</span>
+                    </div>
+                </div>
+                <div class="member-interests">
+                    <span class="interest-tag">🍳 Cuisine</span>
+                    <span class="interest-tag">🌱 Jardinage</span>
+                    <span class="interest-tag">📚 Lecture</span>
+                </div>
+                <div class="member-actions">
+                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
+                    <button class="member-action-btn">✏️ Modifier</button>
+                </div>
+            </div>
+
+            <!-- Member Card 2 -->
+            <div class="member-card" data-group="family">
+                <div class="member-header">
+                    <div class="member-avatar family">👨</div>
+                    <div class="member-info">
+                        <div class="member-name">Papa</div>
+                        <div class="member-relation">Père • 68 ans</div>
+                    </div>
+                    <button class="member-menu">⋮</button>
+                </div>
+                <div class="member-details">
+                    <div class="member-detail">
+                        <span class="member-detail-icon">🎂</span>
+                        <span>3 mars</span>
+                    </div>
+                    <div class="member-detail">
+                        <span class="member-detail-icon">👕</span>
+                        <span>Taille L • Pointure 43</span>
+                    </div>
+                </div>
+                <div class="member-interests">
+                    <span class="interest-tag">⚽ Sport</span>
+                    <span class="interest-tag">🔧 Bricolage</span>
+                    <span class="interest-tag">📺 Séries</span>
+                </div>
+                <div class="member-actions">
+                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
+                    <button class="member-action-btn">✏️ Modifier</button>
+                </div>
+            </div>
+
+            <!-- Member Card 3 -->
+            <div class="member-card" data-group="friend">
+                <div class="member-header">
+                    <div class="member-avatar friend">👩</div>
+                    <div class="member-info">
+                        <div class="member-name">Sophie</div>
+                        <div class="member-relation">Amie proche • 29 ans</div>
+                    </div>
+                    <button class="member-menu">⋮</button>
+                </div>
+                <div class="member-details">
+                    <div class="member-detail">
+                        <span class="member-detail-icon">🎂</span>
+                        <span>15 janvier</span>
+                    </div>
+                    <div class="member-detail">
+                        <span class="member-detail-icon">👕</span>
+                        <span>Taille S • Pointure 37</span>
+                    </div>
+                </div>
+                <div class="member-interests">
+                    <span class="interest-tag">🧘 Yoga</span>
+                    <span class="interest-tag">✈️ Voyage</span>
+                    <span class="interest-tag">🎨 Art</span>
+                </div>
+                <div class="member-actions">
+                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
+                    <button class="member-action-btn">✏️ Modifier</button>
+                </div>
+            </div>
+
+            <!-- Member Card 4 -->
+            <div class="member-card" data-group="colleague">
+                <div class="member-header">
+                    <div class="member-avatar colleague">👨</div>
+                    <div class="member-info">
+                        <div class="member-name">Marc</div>
+                        <div class="member-relation">Collègue • Tech</div>
+                    </div>
+                    <button class="member-menu">⋮</button>
+                </div>
+                <div class="member-details">
+                    <div class="member-detail">
+                        <span class="member-detail-icon">🎂</span>
+                        <span>22 septembre</span>
+                    </div>
+                </div>
+                <div class="member-interests">
+                    <span class="interest-tag">🎮 Gaming</span>
+                    <span class="interest-tag">💻 Tech</span>
+                    <span class="interest-tag">☕ Café</span>
+                </div>
+                <div class="member-actions">
+                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
+                    <button class="member-action-btn">✏️ Modifier</button>
+                </div>
+            </div>
+
+            <!-- Add Member Card -->
+            <div class="add-member-card" onclick="addNewMember()">
+                <div class="add-member-icon">+</div>
+                <div class="add-member-text">Ajouter un membre</div>
+                <div class="add-member-hint">Cliquez pour créer un nouveau profil</div>
+            </div>
+        </div>
+
+        <!-- Invite Section -->
+        <div class="invite-section">
+            <div class="invite-content">
+                <div class="invite-title">✨ Invitez votre tribu sur AlerteRabais!</div>
+                <div class="invite-text">Partagez l'app avec vos proches pour qu'ils puissent aussi renseigner leurs souhaits et créer leurs listes.</div>
+            </div>
+            <div class="invite-actions">
+                <button class="btn-invite secondary">📋 Copier le lien</button>
+                <button class="btn-invite primary">📤 Inviter par email</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        console.log('👥 Ma Tribu - AlerteRabais.com');
+
+        // Animation des cartes
+        document.querySelectorAll('.member-card, .add-member-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.4s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 80);
+        });
+
+        // Group tabs filtering
+        document.querySelectorAll('.group-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.group-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const group = tab.dataset.group;
+                
+                // Filter cards
+                document.querySelectorAll('.member-card').forEach(card => {
+                    if (group === 'all' || card.dataset.group === group) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Add new member
+        function addNewMember() {
+            alert('🆕 Formulaire d\'ajout de membre\n\nCette fonctionnalité sera bientôt disponible!');
+        }
+
+        // Card click handler
+        document.querySelectorAll('.member-action-btn.primary').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = btn.closest('.member-card');
+                const name = card.querySelector('.member-name').textContent;
+                window.location.href = `index.html?for=${encodeURIComponent(name)}`;
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

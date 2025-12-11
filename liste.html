@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Listes | AlerteRabais.com</title>
+    <meta name="description" content="Créez et gérez vos listes de cadeaux, partagez-les avec vos proches et ne manquez plus aucune occasion.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0A1628;
+            --bg-card: #0D1E30;
+            --bg-input: #12263A;
+            --bg-hover: #1A3148;
+            --accent-cyan: #00D9FF;
+            --accent-green: #10B981;
+            --accent-yellow: #FBBF24;
+            --accent-pink: #EC4899;
+            --accent-purple: #A855F7;
+            --accent-orange: #F97316;
+            --accent-red: #EF4444;
+            --text-white: #FFFFFF;
+            --text-muted: #94A3B8;
+            --text-ghost: #4B5563;
+            --border: rgba(255,255,255,0.08);
+            --glow-cyan: rgba(0, 217, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0F172A 100%);
+            min-height: 100vh;
+            color: var(--text-white);
+        }
+
+        /* ===== HEADER/NAV ===== */
+        .header {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .logo-text span { color: var(--accent-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .nav-link.active {
+            background: var(--glow-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-premium {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), #0891B2);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--glow-cyan);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn-create-list {
+            padding: 0.75rem 1.25rem;
+            background: var(--accent-green);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-create-list:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ===== LIST TABS ===== */
+        .list-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .list-tab {
+            padding: 0.6rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .list-tab:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .list-tab.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        /* ===== LISTS GRID ===== */
+        .lists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .list-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .list-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-cyan);
+        }
+
+        .list-header {
+            padding: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .list-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .list-icon.christmas { background: linear-gradient(135deg, #EF4444, #DC2626); }
+        .list-icon.birthday { background: linear-gradient(135deg, #EC4899, #F472B6); }
+        .list-icon.wedding { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
+        .list-icon.custom { background: linear-gradient(135deg, var(--accent-cyan), #0891B2); }
+        .list-icon.wishlist { background: linear-gradient(135deg, #FBBF24, #F59E0B); }
+
+        .list-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .list-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .list-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .list-status {
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .list-status.public { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
+        .list-status.private { background: rgba(251, 191, 36, 0.15); color: var(--accent-yellow); }
+        .list-status.shared { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); }
+
+        /* List Preview Items */
+        .list-preview {
+            padding: 0 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            background: var(--bg-input);
+            border-radius: 8px;
+        }
+
+        .preview-item-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-hover);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .preview-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .preview-item-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .preview-item-price {
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .preview-item-status {
+            font-size: 0.75rem;
+            color: var(--text-ghost);
+        }
+
+        .preview-item-status.reserved {
+            color: var(--accent-yellow);
+        }
+
+        .preview-item-status.bought {
+            color: var(--accent-green);
+        }
+
+        .preview-more {
+            text-align: center;
+            padding: 0.5rem;
+            color: var(--text-ghost);
+            font-size: 0.8rem;
+        }
+
+        /* List Stats */
+        .list-stats {
+            padding: 0.75rem 1.25rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-ghost);
+            text-transform: uppercase;
+        }
+
+        /* List Actions */
+        .list-actions {
+            padding: 1rem 1.25rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .list-action-btn {
+            flex: 1;
+            padding: 0.6rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-white);
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+        }
+
+        .list-action-btn:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent-cyan);
+        }
+
+        .list-action-btn.primary {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .list-action-btn.primary:hover {
+            background: #00B8D9;
+        }
+
+        /* ===== CREATE LIST CARD ===== */
+        .create-list-card {
+            background: var(--bg-card);
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-height: 350px;
+        }
+
+        .create-list-card:hover {
+            border-color: var(--accent-cyan);
+            background: var(--bg-hover);
+        }
+
+        .create-list-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-input);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.25rem;
+        }
+
+        .create-list-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .create-list-hint {
+            color: var(--text-ghost);
+            font-size: 0.9rem;
+            max-width: 200px;
+        }
+
+        /* ===== TEMPLATES SECTION ===== */
+        .templates-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .template-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .template-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyan);
+            background: var(--bg-hover);
+        }
+
+        .template-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .template-name {
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .template-desc {
+            color: var(--text-ghost);
+            font-size: 0.8rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .page-header {
+                flex-direction: column;
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .list-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 0.5rem;
+            }
+
+            .lists-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .templates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">🎁</div>
+            <div class="logo-text">AlerteRabais<span>AI</span></div>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">🔍 Recherche</a>
+            <a href="qg.html" class="nav-link">🏠 Mon QG</a>
+            <a href="tribu.html" class="nav-link">👥 Ma Tribu</a>
+            <a href="fil-tribu.html" class="nav-link">📰 Fil</a>
+            <a href="liste.html" class="nav-link active">📋 Listes</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="btn-premium">⭐ Premium</button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">📋 Mes Listes</h1>
+                <p class="page-subtitle">Créez et gérez vos listes de cadeaux pour toutes les occasions</p>
+            </div>
+            <button class="btn-create-list" onclick="createNewList()">
+                <span>+</span> Nouvelle liste
+            </button>
+        </div>
+
+        <!-- List Tabs -->
+        <div class="list-tabs">
+            <button class="list-tab active">Toutes</button>
+            <button class="list-tab">🎄 Noël</button>
+            <button class="list-tab">🎂 Anniversaires</button>
+            <button class="list-tab">💝 Mes souhaits</button>
+            <button class="list-tab">📤 Partagées</button>
+        </div>
+
+        <!-- Lists Grid -->
+        <div class="lists-grid">
+            <!-- List Card 1 -->
+            <div class="list-card">
+                <div class="list-header">
+                    <div class="list-icon christmas">🎄</div>
+                    <div class="list-info">
+                        <div class="list-title">Noël 2025 - Famille</div>
+                        <div class="list-meta">
+                            <span>8 cadeaux</span>
+                            <span class="list-status shared">Partagée</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-preview">
+                    <div class="preview-items">
+                        <div class="preview-item">
+                            <div class="preview-item-icon">🍳</div>
+                            <div class="preview-item-info">
+                                <div class="preview-item-name">Robot KitchenAid pour Maman</div>
+                                <div class="preview-item-price">449,99 $</div>
+                            </div>
+                            <div class="preview-item-status bought">✓ Acheté</div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-item-icon">🔧</div>
+                            <div class="preview-item-info">
+                                <div class="preview-item-name">Outils Stanley pour Papa</div>
+                                <div class="preview-item-price">89,99 $</div>
+                            </div>
+                            <div class="preview-item-status reserved">🔒 Réservé</div>
+                        </div>
+                    </div>
+                    <div class="preview-more">+6 autres cadeaux</div>
+                </div>
+                <div class="list-stats">
+                    <div class="stat">
+                        <div class="stat-value">725$</div>
+                        <div class="stat-label">Budget total</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">3/8</div>
+                        <div class="stat-label">Achetés</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">25j</div>
+                        <div class="stat-label">Restants</div>
+                    </div>
+                </div>
+                <div class="list-actions">
+                    <button class="list-action-btn primary">📝 Éditer</button>
+                    <button class="list-action-btn">📤 Partager</button>
+                </div>
+            </div>
+
+            <!-- List Card 2 -->
+            <div class="list-card">
+                <div class="list-header">
+                    <div class="list-icon birthday">🎂</div>
+                    <div class="list-info">
+                        <div class="list-title">Anniversaire Maman - Déc</div>
+                        <div class="list-meta">
+                            <span>5 idées</span>
+                            <span class="list-status private">Privée</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-preview">
+                    <div class="preview-items">
+                        <div class="preview-item">
+                            <div class="preview-item-icon">📚</div>
+                            <div class="preview-item-info">
+                                <div class="preview-item-name">Livre de recettes italiennes</div>
+                                <div class="preview-item-price">34,99 $</div>
+                            </div>
+                            <div class="preview-item-status">À acheter</div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-item-icon">🌸</div>
+                            <div class="preview-item-info">
+                                <div class="preview-item-name">Kit jardinage intérieur</div>
+                                <div class="preview-item-price">59,99 $</div>
+                            </div>
+                            <div class="preview-item-status">À acheter</div>
+                        </div>
+                    </div>
+                    <div class="preview-more">+3 autres idées</div>
+                </div>
+                <div class="list-stats">
+                    <div class="stat">
+                        <div class="stat-value">215$</div>
+                        <div class="stat-label">Budget</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">0/5</div>
+                        <div class="stat-label">Achetés</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">12j</div>
+                        <div class="stat-label">Restants</div>
+                    </div>
+                </div>
+                <div class="list-actions">
+                    <button class="list-action-btn primary">📝 Éditer</button>
+                    <button class="list-action-btn">📤 Partager</button>
+                </div>
+            </div>
+
+            <!-- List Card 3 - Wishlist -->
+            <div class="list-card">
+                <div class="list-header">
+                    <div class="list-icon wishlist">⭐</div>
+                    <div class="list-info">
+                        <div class="list-title">Ma liste de souhaits</div>
+                        <div class="list-meta">
+                            <span>12 articles</span>
+                            <span class="list-status public">Publique</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-preview">
+                    <div class="preview-items">
+                        <div class="preview-item">
+                            <div class="preview-item-icon">🎧</div>
+                            <div class="preview-item-info">
+                                <div class="preview-item-name">AirPods Pro 2</div>
+                                <div class="preview-item-price">329,00 $</div>
+                            </div>
+                            <div class="preview-item-status reserved">🔒 Réservé</div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-item-icon">📖</div>
+                            <div class="preview-item-info">
+                                <div class="preview-item-name">Kindle Paperwhite</div>
+                                <div class="preview-item-price">189,99 $</div>
+                            </div>
+                            <div class="preview-item-status">Disponible</div>
+                        </div>
+                    </div>
+                    <div class="preview-more">+10 autres articles</div>
+                </div>
+                <div class="list-stats">
+                    <div class="stat">
+                        <div class="stat-value">1,850$</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Réservés</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Vues</div>
+                    </div>
+                </div>
+                <div class="list-actions">
+                    <button class="list-action-btn primary">📝 Éditer</button>
+                    <button class="list-action-btn">🔗 Copier lien</button>
+                </div>
+            </div>
+
+            <!-- Create New List Card -->
+            <div class="create-list-card" onclick="createNewList()">
+                <div class="create-list-icon">+</div>
+                <div class="create-list-text">Créer une liste</div>
+                <div class="create-list-hint">Organisez vos idées de cadeaux par occasion</div>
+            </div>
+        </div>
+
+        <!-- Templates Section -->
+        <section class="templates-section">
+            <div class="section-header">
+                <h2 class="section-title">✨ Modèles de listes</h2>
+            </div>
+            <div class="templates-grid">
+                <div class="template-card" onclick="useTemplate('christmas')">
+                    <div class="template-icon">🎄</div>
+                    <div class="template-name">Noël</div>
+                    <div class="template-desc">Liste pour les fêtes</div>
+                </div>
+                <div class="template-card" onclick="useTemplate('birthday')">
+                    <div class="template-icon">🎂</div>
+                    <div class="template-name">Anniversaire</div>
+                    <div class="template-desc">Célébrer un proche</div>
+                </div>
+                <div class="template-card" onclick="useTemplate('wedding')">
+                    <div class="template-icon">💒</div>
+                    <div class="template-name">Mariage</div>
+                    <div class="template-desc">Liste de mariage</div>
+                </div>
+                <div class="template-card" onclick="useTemplate('baby')">
+                    <div class="template-icon">👶</div>
+                    <div class="template-name">Naissance</div>
+                    <div class="template-desc">Baby shower</div>
+                </div>
+                <div class="template-card" onclick="useTemplate('housewarming')">
+                    <div class="template-icon">🏠</div>
+                    <div class="template-name">Crémaillère</div>
+                    <div class="template-desc">Nouvelle maison</div>
+                </div>
+                <div class="template-card" onclick="useTemplate('graduation')">
+                    <div class="template-icon">🎓</div>
+                    <div class="template-name">Diplôme</div>
+                    <div class="template-desc">Réussite scolaire</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        console.log('📋 Mes Listes - AlerteRabais.com');
+
+        // Animation des cartes
+        document.querySelectorAll('.list-card, .create-list-card, .template-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.4s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 80);
+        });
+
+        // Tab filtering
+        document.querySelectorAll('.list-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.list-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Create new list
+        function createNewList() {
+            alert('🆕 Création de liste\n\nCette fonctionnalité sera bientôt disponible!');
+        }
+
+        // Use template
+        function useTemplate(type) {
+            const templates = {
+                christmas: '🎄 Noël',
+                birthday: '🎂 Anniversaire',
+                wedding: '💒 Mariage',
+                baby: '👶 Naissance',
+                housewarming: '🏠 Crémaillère',
+                graduation: '🎓 Diplôme'
+            };
+            alert(`✨ Modèle "${templates[type]}" sélectionné!\n\nLa création de liste avec ce modèle sera bientôt disponible.`);
+        }
+
+        // Action buttons
+        document.querySelectorAll('.list-action-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (btn.textContent.includes('Partager') || btn.textContent.includes('Copier')) {
+                    btn.textContent = '✓ Copié!';
+                    btn.style.background = 'var(--accent-green)';
+                    setTimeout(() => {
+                        btn.textContent = btn.dataset.original || '📤 Partager';
+                        btn.style.background = '';
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
