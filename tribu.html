@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Tribu | TrouveUnCadeau.xyz</title>
+    <title>Ma Tribu | AlerteRabais.com</title>
     <meta name="description" content="Gérez vos proches, leurs préférences et ne manquez plus jamais une occasion importante.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -20,6 +20,7 @@
             --accent-pink: #EC4899;
             --accent-purple: #A855F7;
             --accent-orange: #F97316;
+            --accent-red: #EF4444;
             --text-white: #FFFFFF;
             --text-muted: #94A3B8;
             --text-ghost: #4B5563;
@@ -217,23 +218,23 @@
         /* ===== MEMBERS GRID ===== */
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .member-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.2s;
-            cursor: pointer;
+            padding: 1.25rem;
+            transition: all 0.3s;
         }
 
         .member-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             border-color: var(--accent-cyan);
+            box-shadow: 0 8px 30px rgba(0, 217, 255, 0.1);
+            transform: translateY(-4px);
         }
 
         .member-header {
@@ -244,32 +245,25 @@
         }
 
         .member-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            flex-shrink: 0;
         }
 
         .member-avatar.family { background: linear-gradient(135deg, #EC4899, #F472B6); }
         .member-avatar.friend { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
-        .member-avatar.colleague { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+        .member-avatar.colleague { background: linear-gradient(135deg, #F59E0B, #FBBF24); }
 
-        .member-info {
-            flex: 1;
-            min-width: 0;
-        }
+        .member-info { flex: 1; }
 
         .member-name {
             font-weight: 600;
             font-size: 1.1rem;
             margin-bottom: 0.25rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .member-relation {
@@ -281,9 +275,16 @@
             background: none;
             border: none;
             color: var(--text-muted);
-            cursor: pointer;
             font-size: 1.25rem;
-            padding: 0.25rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .member-menu:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
         }
 
         .member-details {
@@ -291,71 +292,75 @@
             flex-direction: column;
             gap: 0.5rem;
             margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--bg-input);
+            border-radius: 10px;
         }
 
         .member-detail {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.85rem;
             color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
         .member-detail-icon {
-            width: 20px;
-            text-align: center;
+            font-size: 1rem;
         }
 
         .member-interests {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
+            gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
         .interest-tag {
-            padding: 0.25rem 0.6rem;
-            background: var(--bg-input);
-            border-radius: 12px;
-            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            background: var(--bg-hover);
+            border-radius: 20px;
+            font-size: 0.8rem;
             color: var(--text-muted);
         }
 
         .member-actions {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .member-action-btn {
             flex: 1;
-            padding: 0.5rem;
-            background: var(--bg-input);
+            padding: 0.65rem 1rem;
             border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-white);
-            font-size: 0.8rem;
+            border-radius: 10px;
+            background: var(--bg-input);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.35rem;
         }
 
         .member-action-btn:hover {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
+            background: var(--bg-hover);
+            color: var(--text-white);
         }
 
         .member-action-btn.primary {
             background: var(--accent-cyan);
-            color: var(--bg-primary);
             border-color: var(--accent-cyan);
+            color: var(--bg-primary);
         }
 
         .member-action-btn.primary:hover {
-            background: #00B8D9;
+            box-shadow: 0 4px 15px var(--glow-cyan);
+        }
+
+        .member-action-btn.danger {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: white;
         }
 
         /* ===== ADD MEMBER CARD ===== */
@@ -368,66 +373,62 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
+            min-height: 280px;
             cursor: pointer;
-            transition: all 0.2s;
-            min-height: 250px;
+            transition: all 0.3s;
         }
 
         .add-member-card:hover {
             border-color: var(--accent-cyan);
-            background: var(--bg-hover);
+            background: rgba(0, 217, 255, 0.05);
         }
 
         .add-member-icon {
             width: 60px;
             height: 60px;
-            background: var(--bg-input);
             border-radius: 50%;
+            background: var(--bg-hover);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: var(--accent-cyan);
             margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .add-member-card:hover .add-member-icon {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            transform: scale(1.1);
         }
 
         .add-member-text {
-            font-weight: 500;
-            margin-bottom: 0.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         .add-member-hint {
-            color: var(--text-ghost);
+            color: var(--text-muted);
             font-size: 0.85rem;
         }
 
         /* ===== INVITE SECTION ===== */
         .invite-section {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(139, 92, 246, 0.1));
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 1.5rem;
-            margin-top: 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
-        .invite-content {
-            flex: 1;
-            min-width: 200px;
-        }
-
         .invite-title {
             font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.35rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .invite-text {
@@ -441,63 +442,355 @@
         }
 
         .btn-invite {
-            padding: 0.6rem 1.25rem;
+            padding: 0.65rem 1.25rem;
             border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            border: none;
-        }
-
-        .btn-invite.primary {
-            background: var(--accent-purple);
-            color: white;
-        }
-
-        .btn-invite.primary:hover {
-            background: #9333EA;
         }
 
         .btn-invite.secondary {
             background: var(--bg-input);
-            color: var(--text-white);
             border: 1px solid var(--border);
+            color: var(--text-white);
         }
 
-        .btn-invite.secondary:hover {
+        .btn-invite.primary {
+            background: var(--accent-cyan);
+            border: none;
+            color: var(--bg-primary);
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
             background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-white);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px var(--glow-cyan);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-ghost);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-white);
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background: var(--bg-primary);
+        }
+
+        .avatar-selector {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .avatar-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            background: var(--bg-input);
+        }
+
+        .avatar-option:hover {
+            transform: scale(1.1);
+        }
+
+        .avatar-option.selected {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px var(--glow-cyan);
+        }
+
+        .interests-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .interest-checkbox {
+            display: none;
+        }
+
+        .interest-label {
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .interest-label:hover {
+            background: var(--bg-hover);
+        }
+
+        .interest-checkbox:checked + .interest-label {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn-modal {
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-modal.secondary {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-white);
+        }
+
+        .btn-modal.primary {
+            background: var(--accent-green);
+            border: none;
+            color: white;
+        }
+
+        .btn-modal.primary:hover {
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-modal.danger {
+            background: var(--accent-red);
+            border: none;
+            color: white;
+        }
+
+        /* ===== DROPDOWN MENU ===== */
+        .dropdown-menu {
+            position: absolute;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            min-width: 150px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 50;
+            display: none;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--bg-hover);
+            color: var(--text-white);
+        }
+
+        .dropdown-item.danger:hover {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-red);
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.error {
+            border-color: var(--accent-red);
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .header {
-                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
 
             .nav-links {
-                display: none;
+                order: 3;
+                width: 100%;
+                justify-content: center;
             }
 
-            .main-content {
-                padding: 1rem;
-            }
-
-            .page-header {
-                flex-direction: column;
-            }
-
-            .page-title {
-                font-size: 1.4rem;
-            }
-
-            .group-tabs {
-                overflow-x: auto;
-                flex-wrap: nowrap;
-                padding-bottom: 0.5rem;
-            }
-
-            .members-grid {
+            .form-row {
                 grid-template-columns: 1fr;
             }
 
@@ -505,39 +798,39 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            .modal {
+                margin: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- ===== HEADER ===== -->
+    <!-- Header -->
     <header class="header">
         <a href="index.html" class="logo">
             <div class="logo-icon">🎁</div>
-            <div class="logo-text">TrouveUnCadeau<span>AI</span></div>
+            <div class="logo-text">Alerte<span>Rabais</span>AI</div>
         </a>
-
         <nav class="nav-links">
             <a href="index.html" class="nav-link">🔍 Recherche</a>
-            <a href="qg.html" class="nav-link">🏠 Mon QG</a>
             <a href="tribu.html" class="nav-link active">👥 Ma Tribu</a>
-            <a href="fil-tribu.html" class="nav-link">📰 Fil</a>
-            <a href="liste.html" class="nav-link">📋 Listes</a>
+            <a href="listes.html" class="nav-link">📋 Listes</a>
         </nav>
-
         <div class="header-actions">
             <button class="btn-premium">⭐ Premium</button>
         </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
+    <!-- Main Content -->
     <main class="main-content">
         <!-- Page Header -->
         <div class="page-header">
             <div>
                 <h1 class="page-title">👥 Ma Tribu</h1>
-                <p class="page-subtitle">Gérez les profils de vos proches pour des cadeaux parfaits</p>
+                <p class="page-subtitle">Gérez vos proches et leurs préférences pour ne jamais manquer une occasion</p>
             </div>
-            <button class="btn-add-member" onclick="addNewMember()">
+            <button class="btn-add-member" onclick="openModal()">
                 <span>+</span> Ajouter un membre
             </button>
         </div>
@@ -545,143 +838,25 @@
         <!-- Group Tabs -->
         <div class="group-tabs">
             <button class="group-tab active" data-group="all">
-                Tous <span class="count">12</span>
+                Tous <span class="count" id="count-all">0</span>
             </button>
             <button class="group-tab" data-group="family">
-                👨‍👩‍👧‍👦 Famille <span class="count">5</span>
+                👨‍👩‍👧‍👦 Famille <span class="count" id="count-family">0</span>
             </button>
-            <button class="group-tab" data-group="friends">
-                🧑‍🤝‍🧑 Amis <span class="count">4</span>
+            <button class="group-tab" data-group="friend">
+                🧑‍🤝‍🧑 Amis <span class="count" id="count-friend">0</span>
             </button>
-            <button class="group-tab" data-group="colleagues">
-                💼 Collègues <span class="count">3</span>
+            <button class="group-tab" data-group="colleague">
+                💼 Collègues <span class="count" id="count-colleague">0</span>
             </button>
         </div>
 
         <!-- Members Grid -->
-        <div class="members-grid">
-            <!-- Member Card 1 -->
-            <div class="member-card" data-group="family">
-                <div class="member-header">
-                    <div class="member-avatar family">👩</div>
-                    <div class="member-info">
-                        <div class="member-name">Maman</div>
-                        <div class="member-relation">Mère • 65 ans</div>
-                    </div>
-                    <button class="member-menu">⋮</button>
-                </div>
-                <div class="member-details">
-                    <div class="member-detail">
-                        <span class="member-detail-icon">🎂</span>
-                        <span>12 décembre</span>
-                    </div>
-                    <div class="member-detail">
-                        <span class="member-detail-icon">👕</span>
-                        <span>Taille M • Pointure 38</span>
-                    </div>
-                </div>
-                <div class="member-interests">
-                    <span class="interest-tag">🍳 Cuisine</span>
-                    <span class="interest-tag">🌱 Jardinage</span>
-                    <span class="interest-tag">📚 Lecture</span>
-                </div>
-                <div class="member-actions">
-                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
-                    <button class="member-action-btn">✏️ Modifier</button>
-                </div>
-            </div>
-
-            <!-- Member Card 2 -->
-            <div class="member-card" data-group="family">
-                <div class="member-header">
-                    <div class="member-avatar family">👨</div>
-                    <div class="member-info">
-                        <div class="member-name">Papa</div>
-                        <div class="member-relation">Père • 68 ans</div>
-                    </div>
-                    <button class="member-menu">⋮</button>
-                </div>
-                <div class="member-details">
-                    <div class="member-detail">
-                        <span class="member-detail-icon">🎂</span>
-                        <span>3 mars</span>
-                    </div>
-                    <div class="member-detail">
-                        <span class="member-detail-icon">👕</span>
-                        <span>Taille L • Pointure 43</span>
-                    </div>
-                </div>
-                <div class="member-interests">
-                    <span class="interest-tag">⚽ Sport</span>
-                    <span class="interest-tag">🔧 Bricolage</span>
-                    <span class="interest-tag">📺 Séries</span>
-                </div>
-                <div class="member-actions">
-                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
-                    <button class="member-action-btn">✏️ Modifier</button>
-                </div>
-            </div>
-
-            <!-- Member Card 3 -->
-            <div class="member-card" data-group="friend">
-                <div class="member-header">
-                    <div class="member-avatar friend">👩</div>
-                    <div class="member-info">
-                        <div class="member-name">Sophie</div>
-                        <div class="member-relation">Amie proche • 29 ans</div>
-                    </div>
-                    <button class="member-menu">⋮</button>
-                </div>
-                <div class="member-details">
-                    <div class="member-detail">
-                        <span class="member-detail-icon">🎂</span>
-                        <span>15 janvier</span>
-                    </div>
-                    <div class="member-detail">
-                        <span class="member-detail-icon">👕</span>
-                        <span>Taille S • Pointure 37</span>
-                    </div>
-                </div>
-                <div class="member-interests">
-                    <span class="interest-tag">🧘 Yoga</span>
-                    <span class="interest-tag">✈️ Voyage</span>
-                    <span class="interest-tag">🎨 Art</span>
-                </div>
-                <div class="member-actions">
-                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
-                    <button class="member-action-btn">✏️ Modifier</button>
-                </div>
-            </div>
-
-            <!-- Member Card 4 -->
-            <div class="member-card" data-group="colleague">
-                <div class="member-header">
-                    <div class="member-avatar colleague">👨</div>
-                    <div class="member-info">
-                        <div class="member-name">Marc</div>
-                        <div class="member-relation">Collègue • Tech</div>
-                    </div>
-                    <button class="member-menu">⋮</button>
-                </div>
-                <div class="member-details">
-                    <div class="member-detail">
-                        <span class="member-detail-icon">🎂</span>
-                        <span>22 septembre</span>
-                    </div>
-                </div>
-                <div class="member-interests">
-                    <span class="interest-tag">🎮 Gaming</span>
-                    <span class="interest-tag">💻 Tech</span>
-                    <span class="interest-tag">☕ Café</span>
-                </div>
-                <div class="member-actions">
-                    <button class="member-action-btn primary">🎁 Trouver cadeau</button>
-                    <button class="member-action-btn">✏️ Modifier</button>
-                </div>
-            </div>
-
-            <!-- Add Member Card -->
-            <div class="add-member-card" onclick="addNewMember()">
+        <div class="members-grid" id="members-grid">
+            <!-- Members will be rendered here dynamically -->
+            
+            <!-- Add Member Card (always last) -->
+            <div class="add-member-card" onclick="openModal()">
                 <div class="add-member-icon">+</div>
                 <div class="add-member-text">Ajouter un membre</div>
                 <div class="add-member-hint">Cliquez pour créer un nouveau profil</div>
@@ -691,63 +866,549 @@
         <!-- Invite Section -->
         <div class="invite-section">
             <div class="invite-content">
-                <div class="invite-title">✨ Invitez votre tribu sur TrouveUnCadeau!</div>
+                <div class="invite-title">✨ Invitez votre tribu sur AlerteRabais!</div>
                 <div class="invite-text">Partagez l'app avec vos proches pour qu'ils puissent aussi renseigner leurs souhaits et créer leurs listes.</div>
             </div>
             <div class="invite-actions">
-                <button class="btn-invite secondary">📋 Copier le lien</button>
-                <button class="btn-invite primary">📤 Inviter par email</button>
+                <button class="btn-invite secondary" onclick="copyInviteLink()">📋 Copier le lien</button>
+                <button class="btn-invite primary" onclick="inviteByEmail()">📤 Inviter par email</button>
             </div>
         </div>
     </main>
 
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">👤 Ajouter un membre</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="member-form">
+                    <input type="hidden" id="member-id">
+                    
+                    <!-- Avatar -->
+                    <div class="form-group">
+                        <label class="form-label">Avatar</label>
+                        <div class="avatar-selector" id="avatar-selector">
+                            <div class="avatar-option selected" data-avatar="👩">👩</div>
+                            <div class="avatar-option" data-avatar="👨">👨</div>
+                            <div class="avatar-option" data-avatar="👧">👧</div>
+                            <div class="avatar-option" data-avatar="👦">👦</div>
+                            <div class="avatar-option" data-avatar="👴">👴</div>
+                            <div class="avatar-option" data-avatar="👵">👵</div>
+                            <div class="avatar-option" data-avatar="🧑">🧑</div>
+                            <div class="avatar-option" data-avatar="👶">👶</div>
+                        </div>
+                    </div>
+
+                    <!-- Nom -->
+                    <div class="form-group">
+                        <label class="form-label">Nom / Surnom *</label>
+                        <input type="text" class="form-input" id="member-name" placeholder="Ex: Maman, Papa, Sophie..." required>
+                    </div>
+
+                    <!-- Relation & Groupe -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Relation</label>
+                            <input type="text" class="form-input" id="member-relation" placeholder="Ex: Mère, Ami proche...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Groupe *</label>
+                            <select class="form-select" id="member-group" required>
+                                <option value="family">👨‍👩‍👧‍👦 Famille</option>
+                                <option value="friend">🧑‍🤝‍🧑 Ami</option>
+                                <option value="colleague">💼 Collègue</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Âge & Anniversaire -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Âge</label>
+                            <input type="number" class="form-input" id="member-age" placeholder="Ex: 35" min="0" max="120">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Date d'anniversaire</label>
+                            <input type="date" class="form-input" id="member-birthday">
+                        </div>
+                    </div>
+
+                    <!-- Taille & Pointure -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Taille vêtement</label>
+                            <select class="form-select" id="member-size">
+                                <option value="">Non spécifié</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pointure</label>
+                            <input type="number" class="form-input" id="member-shoe" placeholder="Ex: 42" min="15" max="55">
+                        </div>
+                    </div>
+
+                    <!-- Intérêts -->
+                    <div class="form-group">
+                        <label class="form-label">Centres d'intérêt</label>
+                        <div class="interests-container">
+                            <input type="checkbox" class="interest-checkbox" id="int-cuisine" value="🍳 Cuisine">
+                            <label for="int-cuisine" class="interest-label">🍳 Cuisine</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-jardinage" value="🌱 Jardinage">
+                            <label for="int-jardinage" class="interest-label">🌱 Jardinage</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-lecture" value="📚 Lecture">
+                            <label for="int-lecture" class="interest-label">📚 Lecture</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-sport" value="⚽ Sport">
+                            <label for="int-sport" class="interest-label">⚽ Sport</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-gaming" value="🎮 Gaming">
+                            <label for="int-gaming" class="interest-label">🎮 Gaming</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-tech" value="💻 Tech">
+                            <label for="int-tech" class="interest-label">💻 Tech</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-yoga" value="🧘 Yoga">
+                            <label for="int-yoga" class="interest-label">🧘 Yoga</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-voyage" value="✈️ Voyage">
+                            <label for="int-voyage" class="interest-label">✈️ Voyage</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-musique" value="🎵 Musique">
+                            <label for="int-musique" class="interest-label">🎵 Musique</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-art" value="🎨 Art">
+                            <label for="int-art" class="interest-label">🎨 Art</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-bricolage" value="🔧 Bricolage">
+                            <label for="int-bricolage" class="interest-label">🔧 Bricolage</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-cafe" value="☕ Café">
+                            <label for="int-cafe" class="interest-label">☕ Café</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-mode" value="👗 Mode">
+                            <label for="int-mode" class="interest-label">👗 Mode</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-cinema" value="🎬 Cinéma">
+                            <label for="int-cinema" class="interest-label">🎬 Cinéma</label>
+                            
+                            <input type="checkbox" class="interest-checkbox" id="int-nature" value="🌲 Nature">
+                            <label for="int-nature" class="interest-label">🌲 Nature</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal secondary" onclick="closeModal()">Annuler</button>
+                <button class="btn-modal danger" id="btn-delete" onclick="deleteMember()" style="display: none;">🗑️ Supprimer</button>
+                <button class="btn-modal primary" onclick="saveMember()">💾 Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toast-icon">✅</span>
+        <span id="toast-message">Membre ajouté avec succès!</span>
+    </div>
+
     <script>
-        console.log('👥 Ma Tribu - TrouveUnCadeau.xyz');
+        console.log('👥 Ma Tribu - AlerteRabais.com - v2.0 Fonctionnel');
 
-        // Animation des cartes
-        document.querySelectorAll('.member-card, .add-member-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                card.style.transition = 'all 0.4s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 80);
-        });
-
-        // Group tabs filtering
-        document.querySelectorAll('.group-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Update active state
-                document.querySelectorAll('.group-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                const group = tab.dataset.group;
-                
-                // Filter cards
-                document.querySelectorAll('.member-card').forEach(card => {
-                    if (group === 'all' || card.dataset.group === group) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Add new member
-        function addNewMember() {
-            alert('🆕 Formulaire d\'ajout de membre\n\nCette fonctionnalité sera bientôt disponible!');
+        // ===== DATA STORAGE =====
+        const STORAGE_KEY = 'alerterabais_tribu';
+        
+        // Load members from localStorage
+        function loadMembers() {
+            const data = localStorage.getItem(STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
         }
 
-        // Card click handler
-        document.querySelectorAll('.member-action-btn.primary').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const card = btn.closest('.member-card');
-                const name = card.querySelector('.member-name').textContent;
-                window.location.href = `index.html?for=${encodeURIComponent(name)}`;
+        // Save members to localStorage
+        function saveMembers(members) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(members));
+            // TODO: Sync with Supabase if user is logged in
+        }
+
+        // ===== RENDER FUNCTIONS =====
+        function renderMembers(filterGroup = 'all') {
+            const members = loadMembers();
+            const grid = document.getElementById('members-grid');
+            
+            // Keep only the add-member-card
+            const addCard = grid.querySelector('.add-member-card');
+            grid.innerHTML = '';
+            
+            // Filter and render members
+            const filteredMembers = filterGroup === 'all' 
+                ? members 
+                : members.filter(m => m.group === filterGroup);
+            
+            filteredMembers.forEach((member, index) => {
+                const card = createMemberCard(member);
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                grid.appendChild(card);
+                
+                // Animate in
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 80);
             });
+            
+            // Add the add-member-card at the end
+            grid.appendChild(addCard);
+            
+            // Update counts
+            updateCounts(members);
+        }
+
+        function createMemberCard(member) {
+            const card = document.createElement('div');
+            card.className = 'member-card';
+            card.dataset.group = member.group;
+            card.dataset.id = member.id;
+            
+            // Format birthday
+            let birthdayDisplay = '';
+            if (member.birthday) {
+                const date = new Date(member.birthday);
+                const options = { day: 'numeric', month: 'long' };
+                birthdayDisplay = date.toLocaleDateString('fr-FR', options);
+            }
+            
+            // Format size/shoe
+            let sizeDisplay = [];
+            if (member.size) sizeDisplay.push(`Taille ${member.size}`);
+            if (member.shoe) sizeDisplay.push(`Pointure ${member.shoe}`);
+            
+            // Relation display
+            const relationParts = [];
+            if (member.relation) relationParts.push(member.relation);
+            if (member.age) relationParts.push(`${member.age} ans`);
+            
+            card.innerHTML = `
+                <div class="member-header">
+                    <div class="member-avatar ${member.group}">${member.avatar}</div>
+                    <div class="member-info">
+                        <div class="member-name">${member.name}</div>
+                        <div class="member-relation">${relationParts.join(' • ') || 'Non spécifié'}</div>
+                    </div>
+                    <button class="member-menu" onclick="toggleDropdown(event, '${member.id}')">⋮</button>
+                    <div class="dropdown-menu" id="dropdown-${member.id}">
+                        <div class="dropdown-item" onclick="editMember('${member.id}')">✏️ Modifier</div>
+                        <div class="dropdown-item danger" onclick="confirmDelete('${member.id}')">🗑️ Supprimer</div>
+                    </div>
+                </div>
+                <div class="member-details">
+                    ${birthdayDisplay ? `<div class="member-detail"><span class="member-detail-icon">🎂</span><span>${birthdayDisplay}</span></div>` : ''}
+                    ${sizeDisplay.length ? `<div class="member-detail"><span class="member-detail-icon">👕</span><span>${sizeDisplay.join(' • ')}</span></div>` : ''}
+                    ${!birthdayDisplay && !sizeDisplay.length ? `<div class="member-detail"><span class="member-detail-icon">ℹ️</span><span>Aucun détail ajouté</span></div>` : ''}
+                </div>
+                <div class="member-interests">
+                    ${member.interests && member.interests.length ? member.interests.map(i => `<span class="interest-tag">${i}</span>`).join('') : '<span class="interest-tag">Aucun intérêt</span>'}
+                </div>
+                <div class="member-actions">
+                    <button class="member-action-btn primary" onclick="findGift('${member.id}')">🎁 Trouver cadeau</button>
+                    <button class="member-action-btn" onclick="editMember('${member.id}')">✏️ Modifier</button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function updateCounts(members) {
+            document.getElementById('count-all').textContent = members.length;
+            document.getElementById('count-family').textContent = members.filter(m => m.group === 'family').length;
+            document.getElementById('count-friend').textContent = members.filter(m => m.group === 'friend').length;
+            document.getElementById('count-colleague').textContent = members.filter(m => m.group === 'colleague').length;
+        }
+
+        // ===== MODAL FUNCTIONS =====
+        let currentEditId = null;
+
+        function openModal(memberId = null) {
+            const overlay = document.getElementById('modal-overlay');
+            const form = document.getElementById('member-form');
+            const title = document.getElementById('modal-title');
+            const deleteBtn = document.getElementById('btn-delete');
+            
+            form.reset();
+            resetAvatarSelection();
+            resetInterests();
+            
+            if (memberId) {
+                // Edit mode
+                currentEditId = memberId;
+                const members = loadMembers();
+                const member = members.find(m => m.id === memberId);
+                
+                if (member) {
+                    title.textContent = '✏️ Modifier ' + member.name;
+                    deleteBtn.style.display = 'block';
+                    
+                    document.getElementById('member-id').value = member.id;
+                    document.getElementById('member-name').value = member.name;
+                    document.getElementById('member-relation').value = member.relation || '';
+                    document.getElementById('member-group').value = member.group;
+                    document.getElementById('member-age').value = member.age || '';
+                    document.getElementById('member-birthday').value = member.birthday || '';
+                    document.getElementById('member-size').value = member.size || '';
+                    document.getElementById('member-shoe').value = member.shoe || '';
+                    
+                    // Set avatar
+                    selectAvatar(member.avatar);
+                    
+                    // Set interests
+                    if (member.interests) {
+                        member.interests.forEach(interest => {
+                            const checkbox = document.querySelector(`.interest-checkbox[value="${interest}"]`);
+                            if (checkbox) checkbox.checked = true;
+                        });
+                    }
+                }
+            } else {
+                // Add mode
+                currentEditId = null;
+                title.textContent = '👤 Ajouter un membre';
+                deleteBtn.style.display = 'none';
+            }
+            
+            overlay.classList.add('active');
+            document.getElementById('member-name').focus();
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').classList.remove('active');
+            currentEditId = null;
+        }
+
+        function closeModalOnOverlay(event) {
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+
+        function selectAvatar(avatar) {
+            document.querySelectorAll('.avatar-option').forEach(opt => {
+                opt.classList.remove('selected');
+                if (opt.dataset.avatar === avatar) {
+                    opt.classList.add('selected');
+                }
+            });
+        }
+
+        function resetAvatarSelection() {
+            document.querySelectorAll('.avatar-option').forEach((opt, index) => {
+                opt.classList.toggle('selected', index === 0);
+            });
+        }
+
+        function resetInterests() {
+            document.querySelectorAll('.interest-checkbox').forEach(cb => {
+                cb.checked = false;
+            });
+        }
+
+        // Avatar selection handler
+        document.getElementById('avatar-selector').addEventListener('click', (e) => {
+            if (e.target.classList.contains('avatar-option')) {
+                selectAvatar(e.target.dataset.avatar);
+            }
+        });
+
+        // ===== CRUD OPERATIONS =====
+        function saveMember() {
+            const name = document.getElementById('member-name').value.trim();
+            const group = document.getElementById('member-group').value;
+            
+            if (!name) {
+                showToast('❌ Le nom est obligatoire', true);
+                return;
+            }
+            
+            const selectedAvatar = document.querySelector('.avatar-option.selected');
+            const interests = Array.from(document.querySelectorAll('.interest-checkbox:checked')).map(cb => cb.value);
+            
+            const memberData = {
+                id: currentEditId || 'member_' + Date.now(),
+                name: name,
+                avatar: selectedAvatar ? selectedAvatar.dataset.avatar : '👤',
+                relation: document.getElementById('member-relation').value.trim(),
+                group: group,
+                age: document.getElementById('member-age').value || null,
+                birthday: document.getElementById('member-birthday').value || null,
+                size: document.getElementById('member-size').value || null,
+                shoe: document.getElementById('member-shoe').value || null,
+                interests: interests,
+                createdAt: currentEditId ? undefined : new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            
+            const members = loadMembers();
+            
+            if (currentEditId) {
+                // Update existing
+                const index = members.findIndex(m => m.id === currentEditId);
+                if (index !== -1) {
+                    memberData.createdAt = members[index].createdAt;
+                    members[index] = memberData;
+                }
+                showToast('✅ ' + name + ' modifié avec succès!');
+            } else {
+                // Add new
+                members.push(memberData);
+                showToast('✅ ' + name + ' ajouté à votre tribu!');
+            }
+            
+            saveMembers(members);
+            closeModal();
+            renderMembers(getActiveGroup());
+        }
+
+        function editMember(id) {
+            closeAllDropdowns();
+            openModal(id);
+        }
+
+        function confirmDelete(id) {
+            closeAllDropdowns();
+            const members = loadMembers();
+            const member = members.find(m => m.id === id);
+            
+            if (member && confirm(`Êtes-vous sûr de vouloir supprimer "${member.name}" de votre tribu?`)) {
+                deleteMemberById(id);
+            }
+        }
+
+        function deleteMember() {
+            if (currentEditId) {
+                const members = loadMembers();
+                const member = members.find(m => m.id === currentEditId);
+                
+                if (member && confirm(`Êtes-vous sûr de vouloir supprimer "${member.name}" de votre tribu?`)) {
+                    deleteMemberById(currentEditId);
+                    closeModal();
+                }
+            }
+        }
+
+        function deleteMemberById(id) {
+            let members = loadMembers();
+            const member = members.find(m => m.id === id);
+            members = members.filter(m => m.id !== id);
+            saveMembers(members);
+            renderMembers(getActiveGroup());
+            showToast('🗑️ ' + (member ? member.name : 'Membre') + ' supprimé');
+        }
+
+        // ===== DROPDOWN MENU =====
+        function toggleDropdown(event, id) {
+            event.stopPropagation();
+            closeAllDropdowns();
+            const dropdown = document.getElementById('dropdown-' + id);
+            if (dropdown) {
+                dropdown.classList.toggle('active');
+                
+                // Position dropdown
+                const button = event.target;
+                const rect = button.getBoundingClientRect();
+                dropdown.style.top = (rect.bottom + 5) + 'px';
+                dropdown.style.right = (window.innerWidth - rect.right) + 'px';
+            }
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('active'));
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', closeAllDropdowns);
+
+        // ===== FILTER TABS =====
+        function getActiveGroup() {
+            const activeTab = document.querySelector('.group-tab.active');
+            return activeTab ? activeTab.dataset.group : 'all';
+        }
+
+        document.querySelectorAll('.group-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.group-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderMembers(tab.dataset.group);
+            });
+        });
+
+        // ===== ACTIONS =====
+        function findGift(memberId) {
+            const members = loadMembers();
+            const member = members.find(m => m.id === memberId);
+            
+            if (member) {
+                // Build search query from member info
+                let query = `Cadeau pour ${member.name}`;
+                if (member.age) query += ` ${member.age} ans`;
+                if (member.relation) query += ` (${member.relation})`;
+                if (member.interests && member.interests.length) {
+                    query += ` qui aime: ${member.interests.join(', ')}`;
+                }
+                
+                window.location.href = `index.html?q=${encodeURIComponent(query)}&for=${encodeURIComponent(member.name)}`;
+            }
+        }
+
+        function copyInviteLink() {
+            const link = window.location.origin + '/signup.html?ref=tribu';
+            navigator.clipboard.writeText(link).then(() => {
+                showToast('📋 Lien copié dans le presse-papiers!');
+            });
+        }
+
+        function inviteByEmail() {
+            const subject = encodeURIComponent('Rejoins ma tribu sur AlerteRabais!');
+            const body = encodeURIComponent('Salut!\n\nJe t\'invite à rejoindre AlerteRabais, une app géniale qui utilise l\'IA pour trouver les meilleurs cadeaux.\n\nInscris-toi ici: ' + window.location.origin + '/signup.html?ref=tribu\n\nÀ bientôt!');
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+
+        // ===== TOAST NOTIFICATION =====
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toast-icon');
+            const msg = document.getElementById('toast-message');
+            
+            icon.textContent = isError ? '❌' : '✅';
+            msg.textContent = message;
+            toast.classList.toggle('error', isError);
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // ===== KEYBOARD SHORTCUTS =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeAllDropdowns();
+            }
+        });
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMembers();
         });
     </script>
 </body>
