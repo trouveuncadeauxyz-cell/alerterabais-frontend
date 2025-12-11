@@ -21,6 +21,12 @@
             --accent-purple: #A855F7;
             --accent-orange: #F97316;
             --accent-red: #EF4444;
+            --accent-blue: #3B82F6;
+            --facebook: #1877F2;
+            --instagram: #E4405F;
+            --twitter: #1DA1F2;
+            --linkedin: #0A66C2;
+            --tiktok: #000000;
             --text-white: #FFFFFF;
             --text-muted: #94A3B8;
             --text-ghost: #4B5563;
@@ -218,7 +224,7 @@
         /* ===== MEMBERS GRID ===== */
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
@@ -324,6 +330,36 @@
             color: var(--text-muted);
         }
 
+        /* ===== SOCIAL LINKS ===== */
+        .member-socials {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-badge.email { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .social-badge.facebook { background: rgba(24, 119, 242, 0.2); color: var(--facebook); }
+        .social-badge.instagram { background: rgba(228, 64, 95, 0.2); color: var(--instagram); }
+        .social-badge.twitter { background: rgba(29, 161, 242, 0.2); color: var(--twitter); }
+        .social-badge.linkedin { background: rgba(10, 102, 194, 0.2); color: var(--linkedin); }
+        .social-badge.tiktok { background: rgba(255, 255, 255, 0.1); color: var(--text-white); }
+
+        .social-badge:hover {
+            transform: scale(1.05);
+        }
+
         .member-actions {
             display: flex;
             gap: 0.75rem;
@@ -357,10 +393,36 @@
             box-shadow: 0 4px 15px var(--glow-cyan);
         }
 
-        .member-action-btn.danger {
-            background: var(--accent-red);
-            border-color: var(--accent-red);
+        .member-action-btn.invite {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
             color: white;
+        }
+
+        /* ===== INVITE STATUS ===== */
+        .invite-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .invite-status.pending {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--accent-yellow);
+        }
+
+        .invite-status.accepted {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+        }
+
+        .invite-status.not-invited {
+            background: rgba(148, 163, 184, 0.1);
+            color: var(--text-muted);
         }
 
         /* ===== ADD MEMBER CARD ===== */
@@ -439,6 +501,7 @@
         .invite-actions {
             display: flex;
             gap: 0.75rem;
+            flex-wrap: wrap;
         }
 
         .btn-invite {
@@ -448,6 +511,9 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-invite.secondary {
@@ -460,6 +526,18 @@
             background: var(--accent-cyan);
             border: none;
             color: var(--bg-primary);
+        }
+
+        .btn-invite.facebook {
+            background: var(--facebook);
+            border: none;
+            color: white;
+        }
+
+        .btn-invite.twitter {
+            background: var(--twitter);
+            border: none;
+            color: white;
         }
 
         /* ===== MODAL ===== */
@@ -487,7 +565,7 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             max-height: 90vh;
             overflow-y: auto;
             animation: modalSlideIn 0.3s ease;
@@ -540,8 +618,30 @@
             padding: 1.5rem;
         }
 
+        .form-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .form-section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         .form-group {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         .form-label {
@@ -653,6 +753,122 @@
             border-color: var(--accent-cyan);
         }
 
+        /* Social input with icon */
+        .social-input-group {
+            display: flex;
+            align-items: center;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .social-input-group:focus-within {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px var(--glow-cyan);
+        }
+
+        .social-input-icon {
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            min-width: 45px;
+            text-align: center;
+        }
+
+        .social-input-icon.email { color: var(--accent-green); }
+        .social-input-icon.facebook { color: var(--facebook); }
+        .social-input-icon.instagram { color: var(--instagram); }
+        .social-input-icon.twitter { color: var(--twitter); }
+        .social-input-icon.linkedin { color: var(--linkedin); }
+        .social-input-icon.tiktok { color: var(--text-white); }
+
+        .social-input {
+            flex: 1;
+            padding: 0.75rem 1rem 0.75rem 0;
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            font-size: 0.95rem;
+        }
+
+        .social-input:focus {
+            outline: none;
+        }
+
+        .social-input::placeholder {
+            color: var(--text-ghost);
+        }
+
+        .invite-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--bg-hover);
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            cursor: pointer;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input);
+            border-radius: 26px;
+            transition: 0.3s;
+        }
+
+        .toggle-slider:before {
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: var(--accent-green);
+        }
+
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .toggle-label {
+            flex: 1;
+        }
+
+        .toggle-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .toggle-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
         .modal-footer {
             padding: 1.5rem;
             border-top: 1px solid var(--border);
@@ -699,7 +915,7 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 0.5rem;
-            min-width: 150px;
+            min-width: 180px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             z-index: 50;
             display: none;
@@ -729,24 +945,6 @@
         .dropdown-item.danger:hover {
             background: rgba(239, 68, 68, 0.2);
             color: var(--accent-red);
-        }
-
-        /* ===== EMPTY STATE ===== */
-        .empty-state {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-        }
-
-        .empty-state-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
-        .empty-state-text {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
         }
 
         /* ===== TOAST NOTIFICATION ===== */
@@ -866,12 +1064,14 @@
         <!-- Invite Section -->
         <div class="invite-section">
             <div class="invite-content">
-                <div class="invite-title">✨ Invitez votre tribu sur AlerteRabais!</div>
-                <div class="invite-text">Partagez l'app avec vos proches pour qu'ils puissent aussi renseigner leurs souhaits et créer leurs listes.</div>
+                <div class="invite-title">🚀 Faites grandir votre tribu!</div>
+                <div class="invite-text">Partagez AlerteRabais sur vos réseaux sociaux et invitez vos proches à rejoindre votre tribu.</div>
             </div>
             <div class="invite-actions">
                 <button class="btn-invite secondary" onclick="copyInviteLink()">📋 Copier le lien</button>
-                <button class="btn-invite primary" onclick="inviteByEmail()">📤 Inviter par email</button>
+                <button class="btn-invite facebook" onclick="shareOnFacebook()">📘 Facebook</button>
+                <button class="btn-invite twitter" onclick="shareOnTwitter()">🐦 Twitter</button>
+                <button class="btn-invite primary" onclick="inviteByEmail()">📧 Email</button>
             </div>
         </div>
     </main>
@@ -887,123 +1087,204 @@
                 <form id="member-form">
                     <input type="hidden" id="member-id">
                     
-                    <!-- Avatar -->
-                    <div class="form-group">
-                        <label class="form-label">Avatar</label>
-                        <div class="avatar-selector" id="avatar-selector">
-                            <div class="avatar-option selected" data-avatar="👩">👩</div>
-                            <div class="avatar-option" data-avatar="👨">👨</div>
-                            <div class="avatar-option" data-avatar="👧">👧</div>
-                            <div class="avatar-option" data-avatar="👦">👦</div>
-                            <div class="avatar-option" data-avatar="👴">👴</div>
-                            <div class="avatar-option" data-avatar="👵">👵</div>
-                            <div class="avatar-option" data-avatar="🧑">🧑</div>
-                            <div class="avatar-option" data-avatar="👶">👶</div>
+                    <!-- Section: Identité -->
+                    <div class="form-section">
+                        <div class="form-section-title">👤 Identité</div>
+                        
+                        <!-- Avatar -->
+                        <div class="form-group">
+                            <label class="form-label">Avatar</label>
+                            <div class="avatar-selector" id="avatar-selector">
+                                <div class="avatar-option selected" data-avatar="👩">👩</div>
+                                <div class="avatar-option" data-avatar="👨">👨</div>
+                                <div class="avatar-option" data-avatar="👧">👧</div>
+                                <div class="avatar-option" data-avatar="👦">👦</div>
+                                <div class="avatar-option" data-avatar="👴">👴</div>
+                                <div class="avatar-option" data-avatar="👵">👵</div>
+                                <div class="avatar-option" data-avatar="🧑">🧑</div>
+                                <div class="avatar-option" data-avatar="👶">👶</div>
+                            </div>
+                        </div>
+
+                        <!-- Nom -->
+                        <div class="form-group">
+                            <label class="form-label">Nom / Surnom *</label>
+                            <input type="text" class="form-input" id="member-name" placeholder="Ex: Maman, Papa, Sophie..." required>
+                        </div>
+
+                        <!-- Relation & Groupe -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Relation</label>
+                                <input type="text" class="form-input" id="member-relation" placeholder="Ex: Mère, Ami proche...">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Groupe *</label>
+                                <select class="form-select" id="member-group" required>
+                                    <option value="family">👨‍👩‍👧‍👦 Famille</option>
+                                    <option value="friend">🧑‍🤝‍🧑 Ami</option>
+                                    <option value="colleague">💼 Collègue</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Âge & Anniversaire -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Âge</label>
+                                <input type="number" class="form-input" id="member-age" placeholder="Ex: 35" min="0" max="120">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Date d'anniversaire</label>
+                                <input type="date" class="form-input" id="member-birthday">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Nom -->
-                    <div class="form-group">
-                        <label class="form-label">Nom / Surnom *</label>
-                        <input type="text" class="form-input" id="member-name" placeholder="Ex: Maman, Papa, Sophie..." required>
+                    <!-- Section: Contact & Réseaux sociaux -->
+                    <div class="form-section">
+                        <div class="form-section-title">📱 Contact & Réseaux sociaux</div>
+                        
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label class="form-label">Adresse email</label>
+                            <div class="social-input-group">
+                                <span class="social-input-icon email">📧</span>
+                                <input type="email" class="social-input" id="member-email" placeholder="exemple@email.com">
+                            </div>
+                        </div>
+
+                        <!-- Facebook -->
+                        <div class="form-group">
+                            <label class="form-label">Facebook</label>
+                            <div class="social-input-group">
+                                <span class="social-input-icon facebook">📘</span>
+                                <input type="text" class="social-input" id="member-facebook" placeholder="facebook.com/nom ou nom d'utilisateur">
+                            </div>
+                        </div>
+
+                        <!-- Instagram -->
+                        <div class="form-group">
+                            <label class="form-label">Instagram</label>
+                            <div class="social-input-group">
+                                <span class="social-input-icon instagram">📸</span>
+                                <input type="text" class="social-input" id="member-instagram" placeholder="@nomdutilisateur">
+                            </div>
+                        </div>
+
+                        <!-- Twitter/X -->
+                        <div class="form-group">
+                            <label class="form-label">Twitter / X</label>
+                            <div class="social-input-group">
+                                <span class="social-input-icon twitter">🐦</span>
+                                <input type="text" class="social-input" id="member-twitter" placeholder="@nomdutilisateur">
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="form-group">
+                            <label class="form-label">LinkedIn</label>
+                            <div class="social-input-group">
+                                <span class="social-input-icon linkedin">💼</span>
+                                <input type="text" class="social-input" id="member-linkedin" placeholder="linkedin.com/in/nom">
+                            </div>
+                        </div>
+
+                        <!-- TikTok -->
+                        <div class="form-group">
+                            <label class="form-label">TikTok</label>
+                            <div class="social-input-group">
+                                <span class="social-input-icon tiktok">🎵</span>
+                                <input type="text" class="social-input" id="member-tiktok" placeholder="@nomdutilisateur">
+                            </div>
+                        </div>
+
+                        <!-- Toggle: Envoyer invitation -->
+                        <div class="invite-toggle">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="send-invite" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <div class="toggle-label">
+                                <div class="toggle-title">🚀 Envoyer une invitation</div>
+                                <div class="toggle-desc">Notifier cette personne qu'elle a été ajoutée à votre tribu</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Relation & Groupe -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Relation</label>
-                            <input type="text" class="form-input" id="member-relation" placeholder="Ex: Mère, Ami proche...">
+                    <!-- Section: Préférences -->
+                    <div class="form-section">
+                        <div class="form-section-title">👕 Préférences</div>
+                        
+                        <!-- Taille & Pointure -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Taille vêtement</label>
+                                <select class="form-select" id="member-size">
+                                    <option value="">Non spécifié</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Pointure</label>
+                                <input type="number" class="form-input" id="member-shoe" placeholder="Ex: 42" min="15" max="55">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Groupe *</label>
-                            <select class="form-select" id="member-group" required>
-                                <option value="family">👨‍👩‍👧‍👦 Famille</option>
-                                <option value="friend">🧑‍🤝‍🧑 Ami</option>
-                                <option value="colleague">💼 Collègue</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <!-- Âge & Anniversaire -->
-                    <div class="form-row">
+                        <!-- Intérêts -->
                         <div class="form-group">
-                            <label class="form-label">Âge</label>
-                            <input type="number" class="form-input" id="member-age" placeholder="Ex: 35" min="0" max="120">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Date d'anniversaire</label>
-                            <input type="date" class="form-input" id="member-birthday">
-                        </div>
-                    </div>
-
-                    <!-- Taille & Pointure -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Taille vêtement</label>
-                            <select class="form-select" id="member-size">
-                                <option value="">Non spécifié</option>
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Pointure</label>
-                            <input type="number" class="form-input" id="member-shoe" placeholder="Ex: 42" min="15" max="55">
-                        </div>
-                    </div>
-
-                    <!-- Intérêts -->
-                    <div class="form-group">
-                        <label class="form-label">Centres d'intérêt</label>
-                        <div class="interests-container">
-                            <input type="checkbox" class="interest-checkbox" id="int-cuisine" value="🍳 Cuisine">
-                            <label for="int-cuisine" class="interest-label">🍳 Cuisine</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-jardinage" value="🌱 Jardinage">
-                            <label for="int-jardinage" class="interest-label">🌱 Jardinage</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-lecture" value="📚 Lecture">
-                            <label for="int-lecture" class="interest-label">📚 Lecture</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-sport" value="⚽ Sport">
-                            <label for="int-sport" class="interest-label">⚽ Sport</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-gaming" value="🎮 Gaming">
-                            <label for="int-gaming" class="interest-label">🎮 Gaming</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-tech" value="💻 Tech">
-                            <label for="int-tech" class="interest-label">💻 Tech</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-yoga" value="🧘 Yoga">
-                            <label for="int-yoga" class="interest-label">🧘 Yoga</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-voyage" value="✈️ Voyage">
-                            <label for="int-voyage" class="interest-label">✈️ Voyage</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-musique" value="🎵 Musique">
-                            <label for="int-musique" class="interest-label">🎵 Musique</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-art" value="🎨 Art">
-                            <label for="int-art" class="interest-label">🎨 Art</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-bricolage" value="🔧 Bricolage">
-                            <label for="int-bricolage" class="interest-label">🔧 Bricolage</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-cafe" value="☕ Café">
-                            <label for="int-cafe" class="interest-label">☕ Café</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-mode" value="👗 Mode">
-                            <label for="int-mode" class="interest-label">👗 Mode</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-cinema" value="🎬 Cinéma">
-                            <label for="int-cinema" class="interest-label">🎬 Cinéma</label>
-                            
-                            <input type="checkbox" class="interest-checkbox" id="int-nature" value="🌲 Nature">
-                            <label for="int-nature" class="interest-label">🌲 Nature</label>
+                            <label class="form-label">Centres d'intérêt</label>
+                            <div class="interests-container">
+                                <input type="checkbox" class="interest-checkbox" id="int-cuisine" value="🍳 Cuisine">
+                                <label for="int-cuisine" class="interest-label">🍳 Cuisine</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-jardinage" value="🌱 Jardinage">
+                                <label for="int-jardinage" class="interest-label">🌱 Jardinage</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-lecture" value="📚 Lecture">
+                                <label for="int-lecture" class="interest-label">📚 Lecture</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-sport" value="⚽ Sport">
+                                <label for="int-sport" class="interest-label">⚽ Sport</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-gaming" value="🎮 Gaming">
+                                <label for="int-gaming" class="interest-label">🎮 Gaming</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-tech" value="💻 Tech">
+                                <label for="int-tech" class="interest-label">💻 Tech</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-yoga" value="🧘 Yoga">
+                                <label for="int-yoga" class="interest-label">🧘 Yoga</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-voyage" value="✈️ Voyage">
+                                <label for="int-voyage" class="interest-label">✈️ Voyage</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-musique" value="🎵 Musique">
+                                <label for="int-musique" class="interest-label">🎵 Musique</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-art" value="🎨 Art">
+                                <label for="int-art" class="interest-label">🎨 Art</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-bricolage" value="🔧 Bricolage">
+                                <label for="int-bricolage" class="interest-label">🔧 Bricolage</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-cafe" value="☕ Café">
+                                <label for="int-cafe" class="interest-label">☕ Café</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-mode" value="👗 Mode">
+                                <label for="int-mode" class="interest-label">👗 Mode</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-cinema" value="🎬 Cinéma">
+                                <label for="int-cinema" class="interest-label">🎬 Cinéma</label>
+                                
+                                <input type="checkbox" class="interest-checkbox" id="int-nature" value="🌲 Nature">
+                                <label for="int-nature" class="interest-label">🌲 Nature</label>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -1023,7 +1304,14 @@
     </div>
 
     <script>
-        console.log('👥 Ma Tribu - AlerteRabais.com - v2.0 Fonctionnel');
+        console.log('👥 Ma Tribu - AlerteRabais.com - v3.0 Viral Edition');
+
+        // ===== CONFIGURATION =====
+        const CONFIG = {
+            BACKEND_URL: 'https://alerterabais-backend.onrender.com',
+            SITE_URL: 'https://alerterabais.com',
+            SITE_NAME: 'AlerteRabais'
+        };
 
         // ===== DATA STORAGE =====
         const STORAGE_KEY = 'alerterabais_tribu';
@@ -1037,7 +1325,6 @@
         // Save members to localStorage
         function saveMembers(members) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(members));
-            // TODO: Sync with Supabase if user is logged in
         }
 
         // ===== RENDER FUNCTIONS =====
@@ -1099,6 +1386,31 @@
             if (member.relation) relationParts.push(member.relation);
             if (member.age) relationParts.push(`${member.age} ans`);
             
+            // Social badges HTML
+            let socialsHtml = '';
+            if (member.email || member.facebook || member.instagram || member.twitter || member.linkedin || member.tiktok) {
+                socialsHtml = '<div class="member-socials">';
+                if (member.email) socialsHtml += `<a href="mailto:${member.email}" class="social-badge email" title="${member.email}">📧</a>`;
+                if (member.facebook) socialsHtml += `<a href="${formatSocialUrl('facebook', member.facebook)}" target="_blank" class="social-badge facebook" title="Facebook">📘</a>`;
+                if (member.instagram) socialsHtml += `<a href="${formatSocialUrl('instagram', member.instagram)}" target="_blank" class="social-badge instagram" title="Instagram">📸</a>`;
+                if (member.twitter) socialsHtml += `<a href="${formatSocialUrl('twitter', member.twitter)}" target="_blank" class="social-badge twitter" title="Twitter">🐦</a>`;
+                if (member.linkedin) socialsHtml += `<a href="${formatSocialUrl('linkedin', member.linkedin)}" target="_blank" class="social-badge linkedin" title="LinkedIn">💼</a>`;
+                if (member.tiktok) socialsHtml += `<a href="${formatSocialUrl('tiktok', member.tiktok)}" target="_blank" class="social-badge tiktok" title="TikTok">🎵</a>`;
+                socialsHtml += '</div>';
+            }
+
+            // Invite status
+            let inviteStatusHtml = '';
+            if (member.email) {
+                if (member.inviteStatus === 'accepted') {
+                    inviteStatusHtml = '<div class="invite-status accepted">✅ A rejoint AlerteRabais</div>';
+                } else if (member.inviteStatus === 'pending') {
+                    inviteStatusHtml = '<div class="invite-status pending">⏳ Invitation envoyée</div>';
+                } else {
+                    inviteStatusHtml = `<div class="invite-status not-invited"><button onclick="sendInvite('${member.id}')" style="background:none;border:none;color:var(--accent-cyan);cursor:pointer;font-size:0.8rem;">📤 Envoyer une invitation</button></div>`;
+                }
+            }
+            
             card.innerHTML = `
                 <div class="member-header">
                     <div class="member-avatar ${member.group}">${member.avatar}</div>
@@ -1109,14 +1421,18 @@
                     <button class="member-menu" onclick="toggleDropdown(event, '${member.id}')">⋮</button>
                     <div class="dropdown-menu" id="dropdown-${member.id}">
                         <div class="dropdown-item" onclick="editMember('${member.id}')">✏️ Modifier</div>
+                        ${member.email ? `<div class="dropdown-item" onclick="sendInvite('${member.id}')">📧 Envoyer invitation</div>` : ''}
+                        <div class="dropdown-item" onclick="shareMember('${member.id}')">📤 Partager</div>
                         <div class="dropdown-item danger" onclick="confirmDelete('${member.id}')">🗑️ Supprimer</div>
                     </div>
                 </div>
+                ${inviteStatusHtml}
                 <div class="member-details">
                     ${birthdayDisplay ? `<div class="member-detail"><span class="member-detail-icon">🎂</span><span>${birthdayDisplay}</span></div>` : ''}
                     ${sizeDisplay.length ? `<div class="member-detail"><span class="member-detail-icon">👕</span><span>${sizeDisplay.join(' • ')}</span></div>` : ''}
                     ${!birthdayDisplay && !sizeDisplay.length ? `<div class="member-detail"><span class="member-detail-icon">ℹ️</span><span>Aucun détail ajouté</span></div>` : ''}
                 </div>
+                ${socialsHtml}
                 <div class="member-interests">
                     ${member.interests && member.interests.length ? member.interests.map(i => `<span class="interest-tag">${i}</span>`).join('') : '<span class="interest-tag">Aucun intérêt</span>'}
                 </div>
@@ -1127,6 +1443,38 @@
             `;
             
             return card;
+        }
+
+        function formatSocialUrl(platform, value) {
+            if (!value) return '#';
+            value = value.trim();
+            
+            // Si c'est déjà une URL complète
+            if (value.startsWith('http://') || value.startsWith('https://')) {
+                return value;
+            }
+            
+            // Retirer le @ au début si présent
+            if (value.startsWith('@')) {
+                value = value.substring(1);
+            }
+            
+            switch(platform) {
+                case 'facebook':
+                    if (value.includes('facebook.com')) return 'https://' + value;
+                    return `https://facebook.com/${value}`;
+                case 'instagram':
+                    return `https://instagram.com/${value}`;
+                case 'twitter':
+                    return `https://twitter.com/${value}`;
+                case 'linkedin':
+                    if (value.includes('linkedin.com')) return 'https://' + value;
+                    return `https://linkedin.com/in/${value}`;
+                case 'tiktok':
+                    return `https://tiktok.com/@${value}`;
+                default:
+                    return value;
+            }
         }
 
         function updateCounts(members) {
@@ -1167,6 +1515,14 @@
                     document.getElementById('member-birthday').value = member.birthday || '';
                     document.getElementById('member-size').value = member.size || '';
                     document.getElementById('member-shoe').value = member.shoe || '';
+                    
+                    // Social fields
+                    document.getElementById('member-email').value = member.email || '';
+                    document.getElementById('member-facebook').value = member.facebook || '';
+                    document.getElementById('member-instagram').value = member.instagram || '';
+                    document.getElementById('member-twitter').value = member.twitter || '';
+                    document.getElementById('member-linkedin').value = member.linkedin || '';
+                    document.getElementById('member-tiktok').value = member.tiktok || '';
                     
                     // Set avatar
                     selectAvatar(member.avatar);
@@ -1241,6 +1597,8 @@
             
             const selectedAvatar = document.querySelector('.avatar-option.selected');
             const interests = Array.from(document.querySelectorAll('.interest-checkbox:checked')).map(cb => cb.value);
+            const sendInviteChecked = document.getElementById('send-invite').checked;
+            const email = document.getElementById('member-email').value.trim();
             
             const memberData = {
                 id: currentEditId || 'member_' + Date.now(),
@@ -1252,7 +1610,14 @@
                 birthday: document.getElementById('member-birthday').value || null,
                 size: document.getElementById('member-size').value || null,
                 shoe: document.getElementById('member-shoe').value || null,
+                email: email || null,
+                facebook: document.getElementById('member-facebook').value.trim() || null,
+                instagram: document.getElementById('member-instagram').value.trim() || null,
+                twitter: document.getElementById('member-twitter').value.trim() || null,
+                linkedin: document.getElementById('member-linkedin').value.trim() || null,
+                tiktok: document.getElementById('member-tiktok').value.trim() || null,
                 interests: interests,
+                inviteStatus: null,
                 createdAt: currentEditId ? undefined : new Date().toISOString(),
                 updatedAt: new Date().toISOString()
             };
@@ -1264,6 +1629,7 @@
                 const index = members.findIndex(m => m.id === currentEditId);
                 if (index !== -1) {
                     memberData.createdAt = members[index].createdAt;
+                    memberData.inviteStatus = members[index].inviteStatus;
                     members[index] = memberData;
                 }
                 showToast('✅ ' + name + ' modifié avec succès!');
@@ -1271,6 +1637,13 @@
                 // Add new
                 members.push(memberData);
                 showToast('✅ ' + name + ' ajouté à votre tribu!');
+                
+                // Send invite if checkbox is checked and email is provided
+                if (sendInviteChecked && email) {
+                    setTimeout(() => {
+                        sendInviteToMember(memberData);
+                    }, 500);
+                }
             }
             
             saveMembers(members);
@@ -1312,6 +1685,131 @@
             saveMembers(members);
             renderMembers(getActiveGroup());
             showToast('🗑️ ' + (member ? member.name : 'Membre') + ' supprimé');
+        }
+
+        // ===== INVITE & SHARE FUNCTIONS =====
+        async function sendInvite(memberId) {
+            closeAllDropdowns();
+            const members = loadMembers();
+            const member = members.find(m => m.id === memberId);
+            
+            if (!member) return;
+            
+            if (!member.email) {
+                showToast('❌ Aucun email pour ce membre', true);
+                return;
+            }
+            
+            await sendInviteToMember(member);
+        }
+
+        async function sendInviteToMember(member) {
+            showToast('📤 Envoi de l\'invitation...');
+            
+            try {
+                // Appel au backend pour envoyer l'email
+                const response = await fetch(`${CONFIG.BACKEND_URL}/api/invite`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        to_email: member.email,
+                        to_name: member.name,
+                        from_name: 'Un ami', // TODO: Get from logged in user
+                        invite_type: 'tribu',
+                        message: `Tu as été ajouté(e) à ma tribu sur ${CONFIG.SITE_NAME}! Rejoins-moi pour découvrir les meilleurs rabais.`
+                    })
+                });
+                
+                if (response.ok) {
+                    // Update member invite status
+                    const members = loadMembers();
+                    const index = members.findIndex(m => m.id === member.id);
+                    if (index !== -1) {
+                        members[index].inviteStatus = 'pending';
+                        saveMembers(members);
+                        renderMembers(getActiveGroup());
+                    }
+                    showToast(`✅ Invitation envoyée à ${member.name}!`);
+                } else {
+                    throw new Error('Erreur serveur');
+                }
+            } catch (error) {
+                console.error('Erreur envoi invitation:', error);
+                // Fallback: ouvrir client email
+                const subject = encodeURIComponent(`Je t'ai ajouté(e) à ma tribu sur ${CONFIG.SITE_NAME}!`);
+                const body = encodeURIComponent(
+                    `Salut ${member.name}!\n\n` +
+                    `Je t'ai ajouté(e) à ma tribu sur ${CONFIG.SITE_NAME}, une app géniale qui utilise l'IA pour trouver les meilleurs cadeaux et rabais.\n\n` +
+                    `Rejoins-moi ici: ${CONFIG.SITE_URL}/signup.html?ref=tribu&invited_by=${encodeURIComponent(member.name)}\n\n` +
+                    `À bientôt!`
+                );
+                window.open(`mailto:${member.email}?subject=${subject}&body=${body}`);
+                
+                // Still mark as pending
+                const members = loadMembers();
+                const index = members.findIndex(m => m.id === member.id);
+                if (index !== -1) {
+                    members[index].inviteStatus = 'pending';
+                    saveMembers(members);
+                    renderMembers(getActiveGroup());
+                }
+                showToast(`📧 Client email ouvert pour ${member.name}`);
+            }
+        }
+
+        function shareMember(memberId) {
+            closeAllDropdowns();
+            const members = loadMembers();
+            const member = members.find(m => m.id === memberId);
+            
+            if (!member) return;
+            
+            const shareText = `J'ai ajouté ${member.name} à ma tribu sur ${CONFIG.SITE_NAME}! 🎁 Rejoins-nous: ${CONFIG.SITE_URL}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: `Ma Tribu - ${CONFIG.SITE_NAME}`,
+                    text: shareText,
+                    url: CONFIG.SITE_URL
+                });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    showToast('📋 Lien copié!');
+                });
+            }
+        }
+
+        // ===== SOCIAL SHARING =====
+        function shareOnFacebook() {
+            const url = encodeURIComponent(CONFIG.SITE_URL);
+            const text = encodeURIComponent(`Je découvre ${CONFIG.SITE_NAME}, une app géniale qui utilise l'IA pour trouver les meilleurs cadeaux et rabais! 🎁`);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(CONFIG.SITE_URL);
+            const text = encodeURIComponent(`Je découvre ${CONFIG.SITE_NAME}, une app IA pour trouver les meilleurs cadeaux! 🎁`);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function copyInviteLink() {
+            const link = `${CONFIG.SITE_URL}/signup.html?ref=tribu`;
+            navigator.clipboard.writeText(link).then(() => {
+                showToast('📋 Lien copié dans le presse-papiers!');
+            });
+        }
+
+        function inviteByEmail() {
+            const subject = encodeURIComponent(`Rejoins ma tribu sur ${CONFIG.SITE_NAME}!`);
+            const body = encodeURIComponent(
+                `Salut!\n\n` +
+                `Je t'invite à rejoindre ${CONFIG.SITE_NAME}, une app géniale qui utilise l'IA pour trouver les meilleurs cadeaux et rabais.\n\n` +
+                `Inscris-toi ici: ${CONFIG.SITE_URL}/signup.html?ref=tribu\n\n` +
+                `À bientôt!`
+            );
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
         }
 
         // ===== DROPDOWN MENU =====
@@ -1367,19 +1865,6 @@
                 
                 window.location.href = `index.html?q=${encodeURIComponent(query)}&for=${encodeURIComponent(member.name)}`;
             }
-        }
-
-        function copyInviteLink() {
-            const link = window.location.origin + '/signup.html?ref=tribu';
-            navigator.clipboard.writeText(link).then(() => {
-                showToast('📋 Lien copié dans le presse-papiers!');
-            });
-        }
-
-        function inviteByEmail() {
-            const subject = encodeURIComponent('Rejoins ma tribu sur AlerteRabais!');
-            const body = encodeURIComponent('Salut!\n\nJe t\'invite à rejoindre AlerteRabais, une app géniale qui utilise l\'IA pour trouver les meilleurs cadeaux.\n\nInscris-toi ici: ' + window.location.origin + '/signup.html?ref=tribu\n\nÀ bientôt!');
-            window.location.href = `mailto:?subject=${subject}&body=${body}`;
         }
 
         // ===== TOAST NOTIFICATION =====
